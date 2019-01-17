@@ -1,0 +1,19 @@
+// FONT
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700,900&subset=cyrillic');
+
+// BOOTSTRAP
+@import '_bootstrap/bootstrap';
+
+
+
+// MAIN
+.main {
+  background: #fff;
+  padding: 0;
+  border-radius: .25rem;
+  overflow: hidden;
+}
+.aside {
+  border-left: 1px Solid #e9ecf1;
+  min-height: 500px;
+}
