@@ -73,4 +73,17 @@
         <button class="btn btn-primary is-modal" data-url="/">ajax modal</button>
         <button class="btn btn-primary is-modal" data-url="/login" data-title="Войти">Войти</button>
         <button class="btn btn-primary is-modal" data-title="Окнищеее" data-content="Контентище">modal</button>
+
+        <button id="simple-message" type="button" class="btn btn-primary">
+            Basic Message
+        </button>
+
+        <script>
+            $("#simple-message").on("click", function (event) {
+                modal.alert('Alert message', 'Alert title', function() {
+                    console.log('Alert window closed.');
+                });
+            });
+        </script>
+
 @endsection
