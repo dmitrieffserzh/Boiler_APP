@@ -35094,14 +35094,16 @@ $(function () {
     alert: function alert(text, title, cb) {
       this.show({
         message: text,
-        title: title ? title : 'Alert',
-        buttons: [{
-          label: 'OK',
-          className: 'btn-primary',
-          action: function action(instance) {
-            instance.close();
-          }
-        }],
+        title: title ? title : 'Уведомление!',
+        // buttons: [
+        //     {
+        //         label: 'OK',
+        //         className: 'btn-primary',
+        //         action: function (instance) {
+        //             instance.close();
+        //         }
+        //     }
+        // ],
         onDisappear: cb ? cb : function () {}
       });
     },

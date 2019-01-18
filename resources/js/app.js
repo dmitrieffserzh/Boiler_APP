@@ -134,16 +134,16 @@ $(function () {
         alert: function (text, title, cb) {
             this.show({
                 message: text,
-                title: (title ? title : 'Alert'),
-                buttons: [
-                    {
-                        label: 'OK',
-                        className: 'btn-primary',
-                        action: function (instance) {
-                            instance.close();
-                        }
-                    }
-                ],
+                title: (title ? title : 'Уведомление!'),
+                // buttons: [
+                //     {
+                //         label: 'OK',
+                //         className: 'btn-primary',
+                //         action: function (instance) {
+                //             instance.close();
+                //         }
+                //     }
+                // ],
                 onDisappear: (cb ? cb : function () {
                 })
             });
