@@ -70,10 +70,6 @@
                 </div>
             </div>
 
-        <button class="btn btn-primary is-modal" data-url="/">ajax modal</button>
-        <button class="btn btn-primary is-modal" data-url="/login" data-title="Войти">Войти</button>
-        <button class="btn btn-primary is-modal" data-title="Окнищеее" data-content="Контентище">modal</button>
-
         <button id="simple-message" type="button" class="btn btn-primary">
             Basic Message
         </button>

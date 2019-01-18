@@ -25,38 +25,6 @@ try {
 // MODAL WINDOW
 $(function () {
     window.modal  = {
-        /**
-         * Show window. Core function.
-         *
-         * @param {Object} params - Window parameters.
-         * @param {string} params.title - Window title.
-         * @param {string} params.message - Window message.
-         * @param {boolean} params.animate - Window animation. Default true.
-         * @param {boolean} params.large - Window large width. Default false.
-         * @param {boolean} params.small - Window small width. Default false.
-         * @param {boolean} params.closeable - Window closeable. Default true.
-         * @param {Array} params.buttons - Array of button objects. Optional.
-         *                                 See below.
-         * @param {function} params.onAppear - Fires when window DID appear.
-         *                                     Parameter will be cbParams (see below).
-         *                                     Optional.
-         * @param {function} params.onDisappear - Fires when window DID disappear.
-         *                                        Parameter wil be cbParams
-         *                                        (see below). Optional.
-         *
-         *
-         * Button object parameters:
-         * @param {string} label - Label of buttton.
-         * @param {string} className - Additional CSS class name of button.
-         *                             Default: 'btn-secondary'.
-         * @param {function} action - Fired on click. Optional. Argument
-         *                            will be cbParams object (see below).
-         *
-         * cbParams object definition:
-         * @typedef {Object} cbParams
-         * @property {Object} element - DOM element of dialog window itself.
-         * @property {function} close - Close window function.
-         */
         show: function (params) {
             // Default settings:
             var settings = {
@@ -111,24 +79,6 @@ $(function () {
                 }
             };
 
-            /**
-             * Create one button with parameters.
-             * @param {object} footer - Footer element of window to add button.
-             * @param {Object} btn    - Button object.
-             * @param {string} btn.label - The title of button.
-             * @param {function} btn.action - Callback function of click on button.
-             *                                Parameter is cbParams object.
-             *                                See above. Optional.
-             * @param {string} btn.className - Class name of button object
-             *                                 (default: 'btn-secondary'). Optional.
-             *
-             * @example
-             * createButton(document.body, {
-             *   label: "String",
-             *   action: function(parameters) {},
-             *   className: "Class name; default 'btn-secondary'"
-             * });
-             */
             function createButton(footer, btn) {
                 var template = [
                     '<button class="btn',
@@ -181,13 +131,6 @@ $(function () {
                 keyboard: false
             });
         },
-        /**
-         * Show alert messsage, similar to native javascript alert window.
-         *
-         * @param {string} text - Alert message.
-         * @param {string} title - Title of alert message. Optional.
-         * @param {function} cb - Callback. Optional.
-         */
         alert: function (text, title, cb) {
             this.show({
                 message: text,
@@ -205,13 +148,6 @@ $(function () {
                 })
             });
         },
-        /**
-         * Show confirm message, similar to native javacsript confirm function.
-         *
-         * @param {string} text - Confirm message text.
-         * @param {string} fifle - Confirm message title. Optional.
-         * @param {function} cb - Callback function with result in argument. Optional.
-         */
         confirm: function (text, title, cb) {
             this.show({
                 message: text,
@@ -236,14 +172,6 @@ $(function () {
                 ]
             });
         },
-        /**
-         * Show prompt message, similar to native javascript prompt function.
-         *
-         * @param {string} text - Confirm message text.
-         * @param {string} value - Default value of text field.
-         * @param {string} title - Title of window.
-         * @param {function} cb - Callback function with result in parameters.
-         */
         prompt: function (text, value, title, cb) {
             this.show({
                 message: [
@@ -272,7 +200,7 @@ $(function () {
                     }
                 ]
             });
-        } // prompt();
+        }
     };
 });
 
