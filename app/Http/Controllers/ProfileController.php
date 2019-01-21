@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProfileController extends Controller {
 
@@ -35,6 +36,9 @@ class ProfileController extends Controller {
     public function edit($route) {
 
         $user = User::where('route', $route)->orWhere('username', $route)->firstOrFail();
+
+        if($user->id != Auth::id())
+            return abort(404);
 
         if(!is_null($user->route) && $route != $user->route)
             return redirect(route('user.profile.edit', $user->route),301);
