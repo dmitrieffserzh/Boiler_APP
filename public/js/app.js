@@ -35183,10 +35183,11 @@ $(function () {
       console.log('Alert window closed.');
     });
   });
-  $('.is-modal-ajax').on("click", function () {
+  $('.is-modal-ajax').on("click", function (event) {
     var data = $(this).data();
 
     if (data.url) {
+      event.preventDefault();
       $.ajax({
         url: data.url,
         success: function success(request) {

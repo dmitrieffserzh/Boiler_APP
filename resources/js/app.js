@@ -41,10 +41,12 @@ $(function () {
         });
     });
 
-    $('.is-modal-ajax').on("click", function () {
+    $('.is-modal-ajax').on("click", function (event) {
 
         let data = $(this).data();
         if (data.url) {
+            event.preventDefault();
+
             $.ajax({
                 url: data.url,
                 success: function (request) {

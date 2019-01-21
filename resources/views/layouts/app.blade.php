@@ -33,7 +33,7 @@
                 <!-- Authentication Links -->
                 @guest
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                        <a class="nav-link is-modal-ajax" href="{{ route('login') }}" data-url="{{ route('login') }}" data-title="@lang('auth.login')">@lang('auth.login')</a>
                     </li>
                     @if (Route::has('register'))
                         <li class="nav-item">
@@ -79,9 +79,7 @@
 </main>
 <footer class="footer">
     <div class="container">
-        <br>
-        <br>
-        <button class="is-modal-ajax btn btn-primary btn-sm" data-url="{{ route('ajax') }}" data-title="@lang('auth.login')">@lang('auth.login')</button>
+        FOOTER
     </div>
 </footer>
 </body>
