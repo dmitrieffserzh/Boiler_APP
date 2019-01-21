@@ -2,7 +2,7 @@
     <div class="form-group row">
         <label for="colFormLabel" class="col-sm-2 col-form-label">URL профиля</label>
         <div class="col-sm-6">
-            <input type="text" class="form-control ajax" id="colFormLabel" placeholder="{{ $user->route ?? $user->route_default }}" data-url="{{ route('user.profile.edit.url', $user->route ?? $user->route_default) }}">
+            <input type="text" class="form-control ajax" id="colFormLabel" placeholder="{{ $user->route ?? $user->username }}" data-url="{{ route('user.profile.edit.url', $user->route ?? $user->username ) }}">
         </div>
     </div>
 </form>

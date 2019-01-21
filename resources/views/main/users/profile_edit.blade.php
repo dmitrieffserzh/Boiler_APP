@@ -4,9 +4,9 @@
     <div class="col-md-12">
         <div class="row">
             <div class="col-md-12">
-                <h1>Изменить профиль</h1>
+                <h1 class="h4">Изменить профиль</h1>
                 {{ $user->profile->first_name ?? $user->email }} <br>
-                {{ $user->route_default }}
+                {{ $user->route }}
                 @include('main.users.forms._route')
             </div>
         </div>

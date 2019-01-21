@@ -44,4 +44,17 @@ class ProfileController extends Controller {
         ]);
     }
 
+
+
+
+
+
+
+
+    public function editUrl ($route) {
+        if(request()->ajax()) {
+            $user = User::find(Auth::id());
+            return 'dsds';
+        }
+    }
 }
