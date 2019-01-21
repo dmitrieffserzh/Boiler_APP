@@ -10491,13 +10491,14 @@ a.text-dark:focus {
 
 .main {
   background: #fff;
-  padding: 0;
+  padding: 1rem 0;
   box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.05);
   border-radius: 0.2rem;
   overflow: hidden;
 }
 
 .aside {
+  padding: 1rem 0;
   border-left: 1px Solid #e9ecf1;
   min-height: 500px;
 }

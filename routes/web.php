@@ -16,4 +16,4 @@ Auth::routes(['verify' => true]);
 
 Route::get('/login_ajax', 'MainController@loginajax')->name('ajax');
 Route::get('/', 'MainController@index')->name('main');
-Route::post('/check_username', 'Auth\RegisterController@checkUsername');
+Route::post('/check_username', 'Auth\RegisterController@checkUsername')->name('check_username');

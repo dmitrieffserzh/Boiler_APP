@@ -78,7 +78,11 @@
     </div>
 </main>
 <footer class="footer">
-    FOOTER
+    <div class="container">
+        <br>
+        <br>
+        <button class="is-modal-ajax btn btn-primary btn-sm" data-url="{{ route('ajax') }}" data-title="@lang('auth.login')">@lang('auth.login')</button>
+    </div>
 </footer>
 </body>
 </html>
