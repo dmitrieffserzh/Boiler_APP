@@ -18,6 +18,14 @@ try {
     window.app = require('./_bootstrap/index.js');
     // MODAL WINDOW
     require('./_bootstrap/modal-control');
+
+
+    // AJAX X-CSRF-TOKEN
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
 } catch (e) {
     console.log(e)
 }

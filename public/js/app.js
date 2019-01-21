@@ -35164,7 +35164,14 @@ try {
 
   window.app = __webpack_require__(/*! ./_bootstrap/index.js */ "./resources/js/_bootstrap/index.js"); // MODAL WINDOW
 
-  __webpack_require__(/*! ./_bootstrap/modal-control */ "./resources/js/_bootstrap/modal-control.js");
+  __webpack_require__(/*! ./_bootstrap/modal-control */ "./resources/js/_bootstrap/modal-control.js"); // AJAX X-CSRF-TOKEN
+
+
+  $.ajaxSetup({
+    headers: {
+      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+  });
 } catch (e) {
   console.log(e);
 } // MODAL WINDOW

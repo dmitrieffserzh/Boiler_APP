@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Models\User;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -47,7 +48,6 @@ class RegisterController extends Controller {
     protected function checkUsername(Request $request) {
 
         if(request()->ajax()) {
-
             $validator = Validator::make($request->all(),
                 ['username'     => ['required', 'string', 'min:3', 'max:15', 'unique:users', 'regex:/^[a-z0-9_]+$/u']],
                 ['required'     => 'Не может быть пустым!',
@@ -61,7 +61,6 @@ class RegisterController extends Controller {
                 return response()->json(['success'=> true, 'error' => [''] ]);
 
             return response()->json(['success'=> false, 'error'=>$validator->errors()->all()]);
-
         }
 
         return abort(404);
