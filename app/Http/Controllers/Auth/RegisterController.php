@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Models\User;
+use App\Models\Profile;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
@@ -38,15 +39,24 @@ class RegisterController extends Controller {
     }
 
     protected function create(array $data) {
-        return User::create([
-            'username' => $data['username'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-        ]);
+
+        // NEW USER
+        $user = new User();
+        $user->username = $data['username'];
+        $user->email    = $data['email'];
+        $user->password = Hash::make($data['password']);
+        $user->save();
+
+        // NEW PROFILE
+        if($user->save())
+            $profile = new Profile();
+            $profile->user_id = $user->id;
+            $profile->save();
+
+        return $user;
     }
 
     protected function checkUsername(Request $request) {
-
         if(request()->ajax()) {
             $validator = Validator::make($request->all(),
                 ['username'     => ['required', 'string', 'min:3', 'max:15', 'unique:users', 'regex:/^[a-z0-9_]+$/u']],
