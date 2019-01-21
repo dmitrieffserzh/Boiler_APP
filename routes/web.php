@@ -13,7 +13,13 @@
 
 
 Auth::routes(['verify' => true]);
-
 Route::get('/login', 'Auth\LoginController@showLoginForm')->name('login');
+
 Route::get('/', 'MainController@index')->name('main');
+
+// PROFILES
+Route::get('/{route}', 'ProfileController@profile')->name('user.profile');
+
+
+// AJAX
 Route::post('/check_username', 'Auth\RegisterController@checkUsername')->name('check_username');
