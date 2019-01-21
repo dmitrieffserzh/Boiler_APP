@@ -32334,6 +32334,159 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/_bootstrap/modal-control.js":
+/*!**************************************************!*\
+  !*** ./resources/js/_bootstrap/modal-control.js ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$(function () {
+  window.modal = {
+    show: function show(params) {
+      // Default settings:
+      var settings = {
+        title: 'Window',
+        message: '',
+        animate: true,
+        large: false,
+        small: false,
+        closeable: true,
+        buttons: [],
+        onAppear: function onAppear() {},
+        onDisappear: function onDisappear() {}
+      };
+      $.extend(settings, params); // Close button template:
+
+      var closeButton = ['<button type="button"', ' class="close" data-dismiss="modal" aria-label="Close">', '  <span aria-hidden="true">&times;</span>', '</button>'].join('');
+      if (!settings.closeable) closeButton = ''; // Main template:
+
+      var template = ['<div class="modal' + (settings.animate ? ' fade' : '') + '"', ' tabindex="-1" role="dialog">', '  <div class="modal-dialog modal-dialog-centered', (settings.large ? ' modal-lg' : '') + (settings.small ? ' modal-sm' : ''), '" role="document">', '   <div class="modal-content">', '     <div class="modal-header">', '       <h5 class="modal-title">' + settings.title + '</h5>', closeButton, '     </div>', '     <div class="modal-body">' + settings.message + '</div>', '   </div>', ' </div>', '</div>'].join('');
+      var element = $(template); // Callback parameters:
+
+      var cbParams = {
+        element: element,
+        close: function close() {
+          $(element).modal('hide');
+        }
+      };
+
+      function createButton(footer, btn) {
+        var template = ['<button class="btn', btn.className ? ' ' + btn.className : ' btn-secondary', '">' + btn.label + '</button>'].join('');
+        var btnInstance = $(template);
+
+        if (btn.action) {
+          $(btnInstance).click(function () {
+            btn.action(cbParams);
+          });
+        }
+
+        $(footer).append(btnInstance);
+      } // createButton();
+      // Adding buttons:
+
+
+      if (settings.buttons.length > 0) {
+        var footer = $('<div class="modal-footer"></div>');
+
+        for (var i = 0; i < settings.buttons.length; i++) {
+          createButton(footer, settings.buttons[i]);
+        }
+
+        $(element).find('.modal-content:eq(0)').append(footer);
+      } // Hanging events:
+
+
+      $(element).on('shown.bs.modal', function (e) {
+        settings.onAppear(cbParams);
+      });
+      $(element).on('hidden.bs.modal', function (e) {
+        settings.onDisappear(cbParams);
+        $(this).modal('dispose');
+        $(this).remove();
+      }); // Finally, show modal:
+
+      if (settings.closeable) {
+        $(element).modal();
+        return;
+      } // If not closeable:
+
+
+      $(element).modal({
+        backdrop: 'static',
+        keyboard: false
+      });
+    },
+    alert: function alert(text, title, cb) {
+      this.show({
+        message: text,
+        title: title ? title : 'Уведомление!',
+        // buttons: [
+        //     {
+        //         label: 'OK',
+        //         className: 'btn-primary',
+        //         action: function (instance) {
+        //             instance.close();
+        //         }
+        //     }
+        // ],
+        onDisappear: cb ? cb : function () {}
+      });
+    },
+    confirm: function confirm(text, title, cb) {
+      this.show({
+        message: text,
+        title: title ? title : 'Подтверждение',
+        closeable: false,
+        buttons: [{
+          label: 'OK',
+          className: 'btn-primary',
+          action: function action(instance) {
+            instance.close();
+            cb(true);
+          }
+        }, {
+          label: 'Отменить',
+          action: function action(instance) {
+            instance.close();
+            cb(false);
+          }
+        }]
+      });
+    },
+    prompt: function prompt(text, value, title, cb) {
+      this.show({
+        message: ['<p>' + text + '</p>', '<input type="text" class="form-control bsWindowInput"', ' value="' + value + '" />'].join(''),
+        title: title ? title : 'Подсказка',
+        closeable: false,
+        buttons: [{
+          label: 'OK',
+          className: 'btn-primary',
+          action: function action(instance) {
+            var val = $(instance.element).find('.bsWindowInput:eq(0)').val();
+            instance.close();
+            cb(val);
+          }
+        }, {
+          label: 'Отменить',
+          action: function action(instance) {
+            instance.close();
+            cb(null);
+          }
+        }]
+      });
+    },
+    ajax: function ajax(text, title) {
+      this.show({
+        message: text,
+        title: title
+      });
+    }
+  };
+});
+
+/***/ }),
+
 /***/ "./resources/js/_bootstrap/modal.js":
 /*!******************************************!*\
   !*** ./resources/js/_bootstrap/modal.js ***!
@@ -35009,166 +35162,32 @@ try {
   window.Popper = __webpack_require__(/*! popper.js */ "./node_modules/popper.js/dist/esm/popper.js").default;
   window.$ = window.jQuery = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js"); // BOOTSTRAP COMPONENTS
 
-  window.app = __webpack_require__(/*! ./_bootstrap/index.js */ "./resources/js/_bootstrap/index.js");
+  window.app = __webpack_require__(/*! ./_bootstrap/index.js */ "./resources/js/_bootstrap/index.js"); // MODAL WINDOW
+
+  __webpack_require__(/*! ./_bootstrap/modal-control */ "./resources/js/_bootstrap/modal-control.js");
 } catch (e) {
   console.log(e);
 } // MODAL WINDOW
 
 
 $(function () {
-  window.modal = {
-    show: function show(params) {
-      // Default settings:
-      var settings = {
-        title: 'Window',
-        message: '',
-        animate: true,
-        large: false,
-        small: false,
-        closeable: true,
-        buttons: [],
-        onAppear: function onAppear() {},
-        onDisappear: function onDisappear() {}
-      };
-      $.extend(settings, params); // Close button template:
+  $('.is-modal').on("click", function () {
+    modal.alert('', '', function () {
+      console.log('Alert window closed.');
+    });
+  });
+  $('.is-modal-ajax').on("click", function () {
+    var data = $(this).data();
 
-      var closeButton = ['<button type="button"', ' class="close" data-dismiss="modal" aria-label="Close">', '  <span aria-hidden="true">&times;</span>', '</button>'].join('');
-      if (!settings.closeable) closeButton = ''; // Main template:
-
-      var template = ['<div class="modal' + (settings.animate ? ' fade' : '') + '"', ' tabindex="-1" role="dialog">', '  <div class="modal-dialog', (settings.large ? ' modal-lg' : '') + (settings.small ? ' modal-sm' : ''), '" role="document">', '   <div class="modal-content">', '     <div class="modal-header">', '       <h5 class="modal-title">' + settings.title + '</h5>', closeButton, '     </div>', '     <div class="modal-body">' + settings.message + '</div>', '   </div>', ' </div>', '</div>'].join('');
-      var element = $(template); // Callback parameters:
-
-      var cbParams = {
-        element: element,
-        close: function close() {
-          $(element).modal('hide');
+    if (data.url) {
+      $.ajax({
+        url: data.url,
+        success: function success(request) {
+          if (request) modal.ajax(request, data.title);
         }
-      };
-
-      function createButton(footer, btn) {
-        var template = ['<button class="btn', btn.className ? ' ' + btn.className : ' btn-secondary', '">' + btn.label + '</button>'].join('');
-        var btnInstance = $(template);
-
-        if (btn.action) {
-          $(btnInstance).click(function () {
-            btn.action(cbParams);
-          });
-        }
-
-        $(footer).append(btnInstance);
-      } // createButton();
-      // Adding buttons:
-
-
-      if (settings.buttons.length > 0) {
-        var footer = $('<div class="modal-footer"></div>');
-
-        for (var i = 0; i < settings.buttons.length; i++) {
-          createButton(footer, settings.buttons[i]);
-        }
-
-        $(element).find('.modal-content:eq(0)').append(footer);
-      } // Hanging events:
-
-
-      $(element).on('shown.bs.modal', function (e) {
-        settings.onAppear(cbParams);
-      });
-      $(element).on('hidden.bs.modal', function (e) {
-        settings.onDisappear(cbParams);
-        $(this).modal('dispose');
-        $(this).remove();
-      }); // Finally, show modal:
-
-      if (settings.closeable) {
-        $(element).modal();
-        return;
-      } // If not closeable:
-
-
-      $(element).modal({
-        backdrop: 'static',
-        keyboard: false
-      });
-    },
-    alert: function alert(text, title, cb) {
-      this.show({
-        message: text,
-        title: title ? title : 'Уведомление!',
-        // buttons: [
-        //     {
-        //         label: 'OK',
-        //         className: 'btn-primary',
-        //         action: function (instance) {
-        //             instance.close();
-        //         }
-        //     }
-        // ],
-        onDisappear: cb ? cb : function () {}
-      });
-    },
-    confirm: function confirm(text, title, cb) {
-      this.show({
-        message: text,
-        title: title ? title : 'Confirm',
-        closeable: false,
-        buttons: [{
-          label: 'OK',
-          className: 'btn-primary',
-          action: function action(instance) {
-            instance.close();
-            cb(true);
-          }
-        }, {
-          label: 'Cancel',
-          action: function action(instance) {
-            instance.close();
-            cb(false);
-          }
-        }]
-      });
-    },
-    prompt: function prompt(text, value, title, cb) {
-      this.show({
-        message: ['<p>' + text + '</p>', '<input type="text" class="form-control bsWindowInput"', ' value="' + value + '" />'].join(''),
-        title: title ? title : 'Prompt',
-        closeable: false,
-        buttons: [{
-          label: 'OK',
-          className: 'btn-primary',
-          action: function action(instance) {
-            var val = $(instance.element).find('.bsWindowInput:eq(0)').val();
-            instance.close();
-            cb(val);
-          }
-        }, {
-          label: 'Cancel',
-          action: function action(instance) {
-            instance.close();
-            cb(null);
-          }
-        }]
       });
     }
-  };
-});
-$(function () {//
-  // $('.is-modal').on('click', function () {
-  //
-  //     var data = $(this).data();
-  //
-  //     if (data.url) {
-  //         $.ajax({
-  //             url: data.url,
-  //             success: function(result){
-  //                 return data.result = result;
-  //             }
-  //         });
-  //     }
-  //
-  //     app.ModalControl.ModalProcess({title: data.title, body: data.result});
-  //
-  // });
+  });
 });
 
 /***/ }),

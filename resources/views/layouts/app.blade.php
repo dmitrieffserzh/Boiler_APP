@@ -65,7 +65,7 @@
     </div>
 </nav>
 </header>
-<main id="content" class="main container shadow">
+<main id="content" class="main container">
     <div class="row no-gutters">
         <section class="section col">
         @yield('content')

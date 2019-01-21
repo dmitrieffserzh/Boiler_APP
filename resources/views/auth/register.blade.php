@@ -70,16 +70,15 @@
                 </div>
             </div>
 
-        <button id="simple-message" type="button" class="btn btn-primary">
+        <button type="button" class="is-modal btn btn-primary">
             Basic Message
         </button>
 
-        <script>
-            $("#simple-message").on("click", function (event) {
-                modal.alert('Alert message', 'Alert title', function() {
-                    console.log('Alert window closed.');
-                });
-            });
-        </script>
+
+        <button data-url="{{ route('ajax') }}" data-title="Войти" type="button" class="is-modal-ajax btn btn-primary">
+            Ajax
+        </button>
+
+
 
 @endsection

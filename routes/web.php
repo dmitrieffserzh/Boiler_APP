@@ -12,6 +12,7 @@
 */
 
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
+Route::get('/login_ajax', 'MainController@loginajax')->name('ajax');
 Route::get('/', 'MainController@index')->name('main');
