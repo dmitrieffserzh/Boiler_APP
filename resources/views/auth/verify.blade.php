@@ -5,17 +5,17 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Verify Your Email Address') }}</div>
+                <div class="card-header">@lang('auth.verify_email')</div>
 
                 <div class="card-body">
                     @if (session('resent'))
                         <div class="alert alert-success" role="alert">
-                            {{ __('A fresh verification link has been sent to your email address.') }}
+                            @lang('auth.verify_refresh')
                         </div>
                     @endif
 
-                    {{ __('Before proceeding, please check your email for a verification link.') }}
-                    {{ __('If you did not receive the email') }}, <a href="{{ route('verification.resend') }}">{{ __('click here to request another') }}</a>.
+                    @lang('auth.verify_check_your_email')
+                    @lang('auth.verify_not_receive'), <a href="{{ route('verification.resend') }}">@lang('auth.verify_request_repeatedly')</a>.
                 </div>
             </div>
         </div>
