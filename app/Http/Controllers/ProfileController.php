@@ -13,7 +13,7 @@ class ProfileController extends Controller {
 
 
     public function index() {
-        return view('main.profiles.index', [
+        return view('main.users.index', [
             'users' =>  User::all()
         ]);
     }
@@ -25,7 +25,7 @@ class ProfileController extends Controller {
         if(!is_null($user->route) && $route != $user->route)
             return redirect(route('user.profile', $user->route),301);
 
-        return view('users.profile', [
+        return view('main.users.profile', [
             'user' => $user
         ]);
     }
@@ -39,7 +39,7 @@ class ProfileController extends Controller {
         if(!is_null($user->route) && $route != $user->route)
             return redirect(route('user.profile.edit', $user->route),301);
 
-        return view('main.profiles.profile_edit', [
+        return view('main.users.profile_edit', [
             'user' => $user
         ]);
     }

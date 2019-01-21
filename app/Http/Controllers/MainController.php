@@ -14,8 +14,4 @@ class MainController extends Controller {
         return view('main');
     }
 
-
-    public function loginajax() {
-        return view('login');
-    }
 }
