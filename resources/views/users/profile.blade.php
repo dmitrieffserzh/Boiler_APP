@@ -8,8 +8,13 @@
             </div>
         @endif
 
-        <h1>Profile</h1>
-            <img src="{{ UsersHelper::get_avatar($user) }}" alt="">
+
+        <div class="col-md-3">
+            <img src="{{ UsersHelper::get_avatar($user->profile->avatar) }}" alt="" width="200px">
+        </div>
+            <div class="col-md-9">
+                {{ $user->profile->username }}
+            </div>
     </div>
 @endsection
 
