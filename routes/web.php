@@ -11,11 +11,19 @@
 |
 */
 
+// MAIN ROUTE
+Route::get('/',                               [ 'as' => 'main',                         'uses' => 'MainController@index', 'middleware' => 'verified' ]);
 
 Auth::routes(['verify' => true]);
 Route::post('/login',                           [ 'as' => 'login',                      'uses' => 'Auth\LoginController@showLoginForm' ]);
 
 
+
+// NEWS
+Route::group(['prefix' => 'news'], function() {
+    Route::get('/',                             [ 'as' => 'news',                         'uses' => 'NewsController@index' ]);
+    Route::get('/{route}',                     [ 'as' => 'news.url',                         'uses' => 'NewsController@getURL' ])->where('route', '(.+)');
+});
 
 
 // PROFILES
@@ -24,8 +32,10 @@ Route::get('/{route}',                        [ 'as' => 'user.profile',         
 Route::get('/{route}/edit',                   [ 'as' => 'user.profile.edit',            'uses' => 'ProfileController@edit' ]);
 Route::get('/{route}/edit/route',             [ 'as' => 'user.profile.edit.url',        'uses' => 'ProfileController@editUrl' ]);
 
-// MAIN ROUTE
-Route::get('/',                               [ 'as' => 'main',                         'uses' => 'MainController@index', 'middleware' => 'verified' ]);
+
+
+
+
 
 // AJAX
 Route::post('/check_username',                [ 'as' => 'check_username',               'uses' => 'Auth\RegisterController@checkUsername' ]);
