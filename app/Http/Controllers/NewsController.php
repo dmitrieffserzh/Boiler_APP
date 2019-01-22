@@ -33,16 +33,15 @@ class NewsController extends Controller
         $news = News::whereId(end($segments))->first();
 
         if(!$news) {
-            $news = News::with('category', end($segments))->first();
-            $news->posts;
-            print_r( $news->posts);
-        } else {
 
+            $cad = Category::where('slug', end($segments) )->firstOrFail()->children()->get();
+            print_r($cad);
+            die();
+        }
 
         $news->category->parents;
         $parent_category = collect($news->category);
 
-        }
         array_splice($segments, 0, 2);
         $segments = array_reverse($segments);
         array_splice($segments, 0, 1);
@@ -66,7 +65,6 @@ class NewsController extends Controller
         return view('main.news.show', [
             'item' => $news
         ]);
-
 
     }
 }
