@@ -15,7 +15,7 @@ class ProfileController extends Controller {
 
     public function index() {
         return view('main.users.index', [
-            'users' =>  User::all()
+            'users' =>  User::paginate(15)
         ]);
     }
 
