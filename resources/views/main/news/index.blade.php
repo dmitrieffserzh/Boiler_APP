@@ -7,11 +7,11 @@
             @foreach($categories as $category)
                 <div class="row border">
                     <div class="col-md-4 py-3">
-                    <img src="{{ 'images/'. $category->image }}" alt="" width="100%">
+                    <img src="{{ '/images/'. $category->image }}" alt="" width="100%">
                     </div>
                     <div class="col-md-8 py-3">
-                <a class="font-weight-bold" href="{{ route('news.url', implode("/", $category->category->ancestorsAndSelf($category->category_id)->pluck('slug')->all()).'/'.$category->slug) }}"> {{ $category->title }}</a><br>
-                <strong class="small font-weight-bold">{{$category->category->title}}</strong>
+                <a class="font-weight-bold text-dark" href="{{ route('news.url', implode("/", $category->category->ancestorsAndSelf($category->category_id)->pluck('slug')->all()).'/'.$category->slug) }}"> {{ $category->title }}</a><br>
+                <a href="{{ route('news.url', implode("/", $category->category->ancestorsAndSelf($category->category_id)->pluck('slug')->all())) }}" class="small font-weight-bold">{{$category->category->title}}</a>
                 </div>
                 </div>
 
