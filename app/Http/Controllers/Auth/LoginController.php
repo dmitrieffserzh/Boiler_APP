@@ -31,10 +31,9 @@ class LoginController extends Controller {
 
         if(request()->ajax()) {
             return view('auth.login_ajax');
-        } else {
-            return view('auth.login');
         }
-
+        
+        return view('auth.login');
     }
 
 }

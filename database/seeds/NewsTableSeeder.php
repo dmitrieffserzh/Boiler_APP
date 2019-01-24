@@ -12,11 +12,11 @@ class NewsTableSeeder extends Seeder
     public function run()
     {
         $x=0;
-        while ($x<500) {
+        while ($x<100) {
             $x++;
             DB::table('news')->insert( [
                 'user_id' => 1,
-                'category_id' => rand(1,3),
+                'category_id' => rand(1,4),
                 'published' => 1,
                 'title' => 'Тестовая новость ' . $x,
                 'slug' => str_slug('Тестовая новость ' . $x),

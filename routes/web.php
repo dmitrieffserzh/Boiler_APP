@@ -13,9 +13,10 @@
 
 // MAIN ROUTE
 Route::get('/',                               [ 'as' => 'main',                         'uses' => 'MainController@index', 'middleware' => 'verified' ]);
+Route::get('/login',                           [ 'as' => 'login',                      'uses' => 'Auth\LoginController@showLoginForm' ]);
 
 Auth::routes(['verify' => true]);
-Route::post('/login',                           [ 'as' => 'login',                      'uses' => 'Auth\LoginController@showLoginForm' ]);
+
 
 
 
