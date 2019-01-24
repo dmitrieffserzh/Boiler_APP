@@ -2,9 +2,12 @@
 
 namespace App\Models;
 
+use Kalnoy\Nestedset\NodeTrait;
 use Illuminate\Database\Eloquent\Model;
 
 class Category extends Model {
+
+    use NodeTrait;
 
     public $fillable = [
         'parent_id',
@@ -18,18 +21,6 @@ class Category extends Model {
         'created_at',
         'updated_at'
     ];
-
-    public function getParentsAttribute(){
-        $parents = collect([]);
-        $parent = $this->parent;
-
-        while(!is_null($parent)) {
-            $parents->push($parent);
-            $parent = $parent->parent;
-        }
-
-        return $parents;
-    }
 
     public function getRouteKeyName() {
         return 'slug';
@@ -46,7 +37,7 @@ class Category extends Model {
     }
 
     public function children() {
-        return $this->hasMany(self::class, 'parent_id');
+        return $this->hasMany(self::class, 'parent_id', 'id');
     }
 
 }
