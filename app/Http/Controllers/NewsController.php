@@ -16,7 +16,7 @@ class NewsController extends Controller
 
     public function index()
     {
-        $news = News::all();
+        $news = News::latest()->paginate(15);
 
         return view('main.news.index', [
             'categories' => $news
@@ -26,10 +26,41 @@ class NewsController extends Controller
 
     public function getURL($route) {
 
-        $categories = explode('/', $route);
+        $route = explode('/', $route);
+        $post = News::where('slug', end($route))->first();
 
-        $main = Category::where('slug', end($categories))->first();
-        reset($categories);
+
+        if($post) {
+            $ancestors = $post->category->ancestors;
+
+            $ancestors_slugs = [];
+            foreach ($ancestors as $i => $category) {
+                $ancestors_slugs[] = $category->slug;
+            }
+            $ancestors_slugs[] = $post->category->slug;
+            $ancestors_slugs[] = $post->slug;
+
+
+            $valid = false;
+            if (count($ancestors_slugs) == count($route)) {
+                $valid = true;
+                for ($i = 0; $i < count($ancestors_slugs); $i++) {
+                    $valid &= $route[$i] == $ancestors_slugs[$i];
+                }
+            }
+
+            if($valid ) {
+                return view('main.news.show', [
+                    'item' => $post
+                ]);
+
+            }
+        }
+
+
+
+        $main = Category::where('slug', end($route))->first();
+        reset($route);
 
         if($main) {
             $ancestors = $main->ancestors;
@@ -42,10 +73,10 @@ class NewsController extends Controller
             $ancestors_slugs[] = $main->slug;
 
             $valid = false;
-            if (count($ancestors_slugs) == count($categories)) {
+            if (count($ancestors_slugs) == count($route)) {
                 $valid = true;
                 for ($i = 0; $i < count($ancestors_slugs); $i++) {
-                    $valid &= $categories[$i] == $ancestors_slugs[$i];
+                    $valid &= $route[$i] == $ancestors_slugs[$i];
                 }
             }
 
@@ -56,7 +87,7 @@ class NewsController extends Controller
             }
 
             if($valid) {
-                $posts = News::whereIn('category_id', $descendants_ids )->get();
+                $posts = News::whereIn('category_id', $descendants_ids )->latest()->paginate(15);
 
                 return view('main.news.index', [
                     'categories' => $posts
