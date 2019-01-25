@@ -52,13 +52,13 @@ class RegisterController extends Controller {
             $profile->user_id = $user->id;
             if ($profile->save()) {
                 return $user;
-            } else {
-                return redirect('register')->with([
-                    'error_message' => 'Ошибка! Попробуйте снова!'
-                ]);
             }
         }
 
+        $user->delete($user->id);
+        return redirect('register')->with([
+            'error_message' => 'Ошибка! Попробуйте снова!'
+        ]);
     }
 
     protected function checkUsername(Request $request) {
