@@ -68,8 +68,6 @@ class NewsController extends Controller {
 
 
 
-
-
     // FUNCTIONS
     private function checkRoute($item, $route, $type) {
 
