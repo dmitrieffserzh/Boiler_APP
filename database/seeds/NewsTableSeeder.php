@@ -18,7 +18,7 @@ class NewsTableSeeder extends Seeder
             $x++;
             array_push($arrayRec,[
                 'user_id' => 1,
-                'category_id' => rand(1,4),
+                'category_id' => rand(1,15),
                 'published' => 1,
                 'title' => 'Тестовая новость ' . $x,
                 'slug' => $slug . $x,

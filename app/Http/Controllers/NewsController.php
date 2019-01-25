@@ -16,8 +16,11 @@ class NewsController extends Controller {
 
         $news = News::latest()->paginate(15);
 
+        Category::fixTree();
+
         return view('main.news.index', [
-            'categories' => $news
+            'categories' => $news,
+            'tree' => $tree = Category::get()->toTree()
         ]);
     }
 
@@ -54,7 +57,8 @@ class NewsController extends Controller {
                 $posts = News::whereIn('category_id', $descendants_ids)->latest()->paginate(15);
 
                 return view('main.news.index', [
-                    'categories' => $posts
+                    'categories' => $posts,
+                    'tree' => $tree = Category::get()->toTree()
                 ]);
             }
         }
