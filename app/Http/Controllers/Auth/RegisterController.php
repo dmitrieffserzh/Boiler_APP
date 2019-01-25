@@ -47,14 +47,17 @@ class RegisterController extends Controller {
         $user->password = Hash::make($data['password']);
 
         // NEW PROFILE
-        if($user->save())
+        if($user->save()) {
             $profile = new Profile();
             $profile->user_id = $user->id;
-            if($profile->save()){
+            if ($profile->save()) {
                 return $user;
             } else {
-                echo 'Иди нах!';
+                return redirect('register')->with([
+                    'error_message' => 'Ошибка! Попробуйте снова!'
+                ]);
             }
+        }
 
     }
 

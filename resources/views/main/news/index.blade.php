@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="col-md-12">
-        <h1 class="h4">Пользователи</h1>
+        <h1 class="h4">Новости</h1>
 
             @foreach($categories as $category)
                 <div class="row border">
@@ -16,7 +16,6 @@
                 </div>
 
             @endforeach
-
 
         {{ $categories->links() }}
     </div>

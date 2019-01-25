@@ -3,6 +3,14 @@
 @section('content')
     <div class="col-md-6">
         <h2>@lang('auth.register')</h2>
+
+        @if (session('error_message'))
+            <div class="alert alert-warning" role="alert">
+                {{ session('error_message') }}
+            </div>
+        @endif
+
+
         <form method="POST" action="{{ route('register') }}">
             @csrf
             <div class="form-group row">
