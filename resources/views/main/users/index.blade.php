@@ -8,7 +8,7 @@
             <li style="margin: 0 0 5px; padding: 0 0 5px 0; border-bottom: 1px Solid #f5f5f8;">
                 <img src="{{ UsersHelper::get_avatar($user->profile->avatar ?? null) }}" alt="" width="50px" style="border-radius: 50%">
 
-                <a href="{{ route('user.profile', $user->route ?? $user->username) }}">{{ $user->username ?? $user->profile->first_name }}</a></li>
+                <a class="font-weight-bold text-dark" href="{{ route('user.profile', $user->route ?? $user->username) }}">{{ '@'.$user->username ?? $user->profile->first_name }}</a></li>
         @endforeach
         </ul>
 

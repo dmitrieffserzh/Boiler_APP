@@ -12,14 +12,16 @@ class NewsTableSeeder extends Seeder
     public function run()
     {
         $x=0;
+        $arrayRec = array();
+        $slug = str_slug('Тестовая новость -');
         while ($x<100) {
             $x++;
-            DB::table('news')->insert( [
+            array_push($arrayRec,[
                 'user_id' => 1,
                 'category_id' => rand(1,4),
                 'published' => 1,
                 'title' => 'Тестовая новость ' . $x,
-                'slug' => str_slug('Тестовая новость ' . $x),
+                'slug' => $slug . $x,
                 'content' => '<p>'.
                     'контент контент контент контент контент контент контент контент контент контент контент контент контент контент контент'.
                     'контент контент контент контент контент контент контент контент контент контент контент контент контент контент контент'.
@@ -33,7 +35,14 @@ class NewsTableSeeder extends Seeder
                 'image' => '1527680191.jpg',
                 'created_at' => '2018-05-18 20:54:29',
                 'updated_at' => '2018-05-18 20:54:29',
-            ] );
+            ]);
+            if($x%100==0){
+                print 'записано '.$x.'записей ';
+                system('clear');
+
+                DB::table('news')->insert($arrayRec);
+                $arrayRec = array();
+            }
         }
     }
 }

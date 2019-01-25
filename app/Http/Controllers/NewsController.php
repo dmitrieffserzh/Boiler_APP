@@ -13,6 +13,7 @@ class NewsController extends Controller {
     }
 
     public function index() {
+
         $news = News::latest()->paginate(15);
 
         return view('main.news.index', [

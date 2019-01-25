@@ -8,7 +8,7 @@
                 @include('main.users.profile_menu')
             </div>
             <div class="col-md-8">
-                <strong>{{ $user->username }}</strong>
+                <strong>{{ '@'.$user->username }}</strong>
             </div>
         </div>
     </div>

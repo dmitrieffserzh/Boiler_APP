@@ -45,15 +45,17 @@ class RegisterController extends Controller {
         $user->username = $data['username'];
         $user->email    = $data['email'];
         $user->password = Hash::make($data['password']);
-        $user->save();
 
         // NEW PROFILE
         if($user->save())
             $profile = new Profile();
             $profile->user_id = $user->id;
-            $profile->save();
+            if($profile->save()){
+                return $user;
+            } else {
+                echo 'Иди нах!';
+            }
 
-        return $user;
     }
 
     protected function checkUsername(Request $request) {
