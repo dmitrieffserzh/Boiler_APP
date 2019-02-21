@@ -4,19 +4,11 @@
     <div class="col-md-12">
         <h1 class="h4">Новости</h1>
         <div class="row">
-            @php $count = 0; @endphp
-            @foreach($categories as $category)
 
-            <div class="@if( $count == 0 || $count == 6 || $count == 10 || $count == 16 )col-lg-8 wide @else col-lg-4 @endif py-3">
-                    <img src="{{ '/images/'. $category->image }}" alt="" width="100%">
+            @for($numb = 0; $numb<count($categories); $numb = $numb + 14)
+                @include('main.news.grid._narrow', ['categorys'=>$categories,'numb'=> $numb])
+            @endfor
 
-                    <div class="py-3">
-                <a class="font-weight-bold text-dark" href="{{ route('news.url', implode("/", $category->category->ancestorsAndSelf($category->category_id)->pluck('slug')->all()).'/'.$category->slug) }}"> {{ $category->title }}</a><br>
-                <a href="{{ route('news.url', implode("/", $category->category->ancestorsAndSelf($category->category_id)->pluck('slug')->all())) }}" class="small font-weight-bold">{{$category->category->title}}</a>
-                </div>
-            </div>
-            @php $count++; @endphp
-            @endforeach
         </div>
         {{ $categories->links() }}
     </div>
