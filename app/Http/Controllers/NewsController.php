@@ -14,7 +14,7 @@ class NewsController extends Controller {
 
     public function index() {
 
-        $news = News::latest()->paginate(15);
+        $news = News::latest()->paginate(20);
 
         Category::fixTree();
 
@@ -54,7 +54,7 @@ class NewsController extends Controller {
                     $descendants_ids[] = $category->id;
                 }
 
-                $posts = News::whereIn('category_id', $descendants_ids)->latest()->paginate(15);
+                $posts = News::whereIn('category_id', $descendants_ids)->latest()->paginate(20);
 
                 return view('main.news.index', [
                     'categories' => $posts,
