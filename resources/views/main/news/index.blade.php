@@ -7,7 +7,7 @@
             @php $count = 0; @endphp
             @foreach($categories as $category)
 
-            <div class="@if( $count == 0 || $count == 6 || $count == 10 || $count == 16 ) col-lg-8 @else col-lg-4 @endif py-3">
+            <div class="@if( $count == 0 || $count == 6 || $count == 10 || $count == 16 )col-lg-8 wide @else col-lg-4 @endif py-3">
                     <img src="{{ '/images/'. $category->image }}" alt="" width="100%">
 
                     <div class="py-3">
