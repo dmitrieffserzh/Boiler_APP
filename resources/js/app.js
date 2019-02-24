@@ -31,31 +31,31 @@ try {
 }
 
 
-// MODAL WINDOW
-
-$(function () {
-
-    $('.is-modal').on("click", function () {
-        modal.alert('', '', function() {
-            console.log('Alert window closed.');
-        });
-    });
-
-    $('.is-modal-ajax').on("click", function (event) {
-
-        let data = $(this).data();
-        if (data.url) {
-            event.preventDefault();
-
-            $.ajax({
-                url: data.url,
-                success: function (request) {
-                    if (request)
-                        modal.ajax(request, data.title);
-                }
-            });
-        }
-    });
-});
+// // MODAL WINDOW
+//
+// $(function () {
+//
+//     $('.is-modal').on("click", function () {
+//         modal.alert('', '', function() {
+//             console.log('Alert window closed.');
+//         });
+//     });
+//
+//     $('.is-modal-ajax').on("click", function (event) {
+//
+//         let data = $(this).data();
+//         if (data.url) {
+//             event.preventDefault();
+//
+//             $.ajax({
+//                 url: data.url,
+//                 success: function (request) {
+//                     if (request)
+//                         modal.ajax(request, data.title);
+//                 }
+//             });
+//         }
+//     });
+// });
 
 

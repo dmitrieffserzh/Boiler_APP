@@ -25,7 +25,9 @@ var AjaxRequest = function(method, options)
         error: function() {},
         data: false,
         async: true,
-        headers: {}
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
     };
 
     this.p = this.extend(defaults, options);
