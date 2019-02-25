@@ -16,7 +16,7 @@
 
 
             <div class="news-tile__author">
-                <img src="{{ UsersHelper::get_avatar($categories[$numb]->owner->avatar ?? null) }}" alt="{{ $categories[$numb]->owner->username ?? $categories[$numb]->owner->first_name }}"
+                <img src="{{ UsersHelper::get_avatar($categories[$numb]->owner->profile->avatar ?? NULL) }}" alt="{{ $categories[$numb]->owner->username ?? $categories[$numb]->owner->first_name }}"
                      width="50px" style="border-radius: 50%">
 
                 <a class="font-weight-bold text-white"
