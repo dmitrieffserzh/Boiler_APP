@@ -40,6 +40,26 @@ body {
 
       }
     }
+    &__category-title {
+      display: inline-block;
+      padding: 0 0 0 1rem;
+      position: relative;
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: #79c1f5;
+      text-transform: uppercase;
+      text-decoration: none;
+      letter-spacing: 1px;
+      &:before {
+        content: "\2022";
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        font-size: 2rem;
+        line-height: 0.75rem;
+      }
+    }
     &--wide {
       & .news-tile__content {
         background: rgba(0, 0, 0, 0.3);
@@ -62,14 +82,8 @@ body {
         color: #fff;
         line-height: 1.333;
       }
-      & .news-tile__category-title {
-        display: inline-block;
-        font-size: .8rem;
-        font-weight: 600;
-        color: #2ecdff;
-        text-transform: uppercase;
-        text-decoration: none;
-        letter-spacing: 1px;
+      & .news-tile__description {
+        color: #ececec;
       }
       & .news-tile__author {
         position: absolute;
