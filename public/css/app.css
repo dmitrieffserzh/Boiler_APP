@@ -10524,6 +10524,15 @@ body {
   width: 100%;
 }
 
+.news-tile--wide .news-tile__title {
+  display: block;
+  margin: 2.5rem;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.333;
+}
+
 .news-tile--wide .news-tile__content {
   background: rgba(0, 0, 0, 0.3);
   position: absolute;
@@ -10537,5 +10546,12 @@ body {
 .news-tile--wide .news-tile__content:hover {
   background: rgba(0, 0, 0, 0.5);
   transition: background 0.3s linear;
+}
+
+.news-tile--wide .news-tile__author {
+  position: absolute;
+  bottom: 0;
+  color: #fff !important;
+  margin: 2.5rem;
 }
 

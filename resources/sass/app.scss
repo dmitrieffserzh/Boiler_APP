@@ -43,6 +43,14 @@ body {
       }
     }
     &--wide {
+      & .news-tile__title {
+        display: block;
+        margin: 2.5rem;
+        font-size: 2rem;
+        font-weight: 700;
+        color: #fff;
+        line-height: 1.333;
+      }
       & .news-tile__content {
         background: rgba(0, 0, 0, 0.3);
         position: absolute;
@@ -55,6 +63,12 @@ body {
           background: rgba(0, 0, 0, .5);
           transition: background .3s linear;
         }
+      }
+      & .news-tile__author {
+        position: absolute;
+        bottom: 0;
+        color: #fff !important;
+        margin: 2.5rem;
       }
     }
   }
