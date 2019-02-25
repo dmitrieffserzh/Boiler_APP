@@ -10513,3 +10513,29 @@ body {
   min-height: 500px;
 }
 
+/* NEWS >>
+===================================================================================================================== */
+
+.news-tile {
+  position: relative;
+}
+
+.news-tile__image {
+  width: 100%;
+}
+
+.news-tile--wide .news-tile__content {
+  background: rgba(0, 0, 0, 0.3);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: background 0.3s linear;
+}
+
+.news-tile--wide .news-tile__content:hover {
+  background: rgba(0, 0, 0, 0.5);
+  transition: background 0.3s linear;
+}
+

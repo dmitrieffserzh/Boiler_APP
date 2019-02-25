@@ -29,3 +29,33 @@ body {
   border-left: 1px Solid #e9ecf1;
   min-height: 500px;
 }
+
+
+/* NEWS >>
+===================================================================================================================== */
+.news {
+  &-tile {
+    position: relative;
+    &__image {
+      width: 100%;
+      &:after {
+
+      }
+    }
+    &--wide {
+      & .news-tile__content {
+        background: rgba(0, 0, 0, 0.3);
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        transition: background .3s linear;
+        &:hover {
+          background: rgba(0, 0, 0, .5);
+          transition: background .3s linear;
+        }
+      }
+    }
+  }
+}
