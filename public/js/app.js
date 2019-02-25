@@ -35175,31 +35175,28 @@ try {
 } catch (e) {
   console.log(e);
 } // // MODAL WINDOW
-//
-// $(function () {
-//
-//     $('.is-modal').on("click", function () {
-//         modal.alert('', '', function() {
-//             console.log('Alert window closed.');
-//         });
-//     });
-//
-//     $('.is-modal-ajax').on("click", function (event) {
-//
-//         let data = $(this).data();
-//         if (data.url) {
-//             event.preventDefault();
-//
-//             $.ajax({
-//                 url: data.url,
-//                 success: function (request) {
-//                     if (request)
-//                         modal.ajax(request, data.title);
-//                 }
-//             });
-//         }
-//     });
-// });
+
+
+$(function () {
+  $('.is-modal').on("click", function () {
+    modal.alert('', '', function () {
+      console.log('Alert window closed.');
+    });
+  });
+  $('.is-modal-ajax').on("click", function (event) {
+    var data = $(this).data();
+
+    if (data.url) {
+      event.preventDefault();
+      $.ajax({
+        url: data.url,
+        success: function success(request) {
+          if (request) modal.ajax(request, data.title);
+        }
+      });
+    }
+  });
+});
 
 /***/ }),
 
