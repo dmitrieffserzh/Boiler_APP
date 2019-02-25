@@ -10496,7 +10496,7 @@ body {
 .header {
   background: #fff;
   margin: 0 0 2rem;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
 }
 
 .main {

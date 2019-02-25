@@ -32,8 +32,10 @@
     <img src="{{ '/images/'. $categories[$numb+1]->image }}" alt="" width="100%">
 
     <div class="py-3">
+        <a href="{{ route('news.url', implode("/", $categories[$numb+1]->category->ancestorsAndSelf($categories[$numb+1]->category_id)->pluck('slug')->all())) }}"
+           class="news-tile__category-title">
+            {{$categories[$numb+1]->category->title}}</a>
         <a class="font-weight-bold text-dark" href="{{ route('news.url', implode("/", $categories[$numb+1]->category->ancestorsAndSelf($categories[$numb+1]->category_id)->pluck('slug')->all()).'/'.$categories[$numb+1]->slug) }}"> {{ $categories[$numb+1]->title }}</a><br>
-        <a href="{{ route('news.url', implode("/", $categories[$numb+1]->category->ancestorsAndSelf($categories[$numb+1]->category_id)->pluck('slug')->all())) }}" class="small font-weight-bold">{{$categories[$numb+1]->category->title}}</a>
     </div>
 </div>
 @endif
