@@ -5,8 +5,8 @@
         <h1 class="h4">Новости</h1>
         <div class="row">
 
-            @for($numb = 0; $numb<count($categories); $numb = $numb + 14)
-                @include('main.news.grid._narrow', ['categorys'=>$categories,'numb'=> $numb])
+            @for($numb = 0; $numb < count($categories); $numb = $numb + 14)
+                @include('main.news.grid.grid', ['categories' => $categories,'numb' => $numb])
             @endfor
 
         </div>

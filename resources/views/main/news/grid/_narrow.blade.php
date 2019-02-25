@@ -1,6 +1,0 @@
-@include('main.news.grid._wide', ['categorys'=>$categorys,'numb'=>$numb])
-@include('main.news.grid._average2', ['categorys'=>$categorys,'numb'=>$numb+1])
-@include('main.news.grid._average', ['categorys'=>$categorys,'numb'=>$numb+4])
-@include('main.news.grid._average2', ['categorys'=>$categorys,'numb'=>$numb+6])
-@include('main.news.grid._average3', ['categorys'=>$categorys,'numb'=>$numb+9])
-@include('main.news.grid._average2', ['categorys'=>$categorys,'numb'=>$numb+11])

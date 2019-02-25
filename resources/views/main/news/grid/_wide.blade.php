@@ -1,9 +1,9 @@
-@if(isset($categorys[$numb]))
+@if(isset($categories[$numb]))
 <div class="col-lg-12 my-2 wide">
-    <div class="col-lg-12" style="background: url('{{ '/images/'. $categorys[$numb]->image }}'); min-height: 360px;background-size: cover;">
+    <div class="col-lg-12" style="background: url('{{ '/images/'. $categories[$numb]->image }}'); min-height: 360px;background-size: cover;">
         <div class="py-5">
-            <a class="font-weight-bold text-dark" href="{{ route('news.url', implode("/", $categorys[$numb]->category->ancestorsAndSelf($categorys[$numb]->category_id)->pluck('slug')->all()).'/'.$categorys[$numb]->slug) }}"> {{ $categorys[$numb]->title }}</a><br>
-            <a href="{{ route('news.url', implode("/", $categorys[$numb]->category->ancestorsAndSelf($categorys[$numb]->category_id)->pluck('slug')->all())) }}" class="small font-weight-bold">{{$categorys[$numb]->category->title}}</a>
+            <a class="font-weight-bold text-dark" href="{{ route('news.url', implode("/", $categories[$numb]->category->ancestorsAndSelf($categories[$numb]->category_id)->pluck('slug')->all()).'/'.$categories[$numb]->slug) }}"> {{ $categories[$numb]->title }}</a><br>
+            <a href="{{ route('news.url', implode("/", $categories[$numb]->category->ancestorsAndSelf($categories[$numb]->category_id)->pluck('slug')->all())) }}" class="small font-weight-bold">{{$categories[$numb]->category->title}}</a>
         </div>
     </div>
 </div>
