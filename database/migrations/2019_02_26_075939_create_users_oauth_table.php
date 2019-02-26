@@ -4,12 +4,8 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSocialLoginsTable extends Migration {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
+class CreateUsersOauthTable extends Migration {
+
     public function up() {
         Schema::create('users_oauth', function (Blueprint $table) {
             $table->increments('id');
@@ -22,13 +18,7 @@ class CreateSocialLoginsTable extends Migration {
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        Schema::dropIfExists('social_logins');
+    public function down() {
+        Schema::dropIfExists('users_oauth');
     }
 }

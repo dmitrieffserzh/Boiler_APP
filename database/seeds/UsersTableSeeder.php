@@ -214,6 +214,7 @@ Sharpdragon лайкнут1	zizi_sk лайкнут1';
                 'first_name' => str_random(10),
                 'last_name' => str_random(10),
                 'gender' => rand(1, 2),
+                'offline_at' => time()
             ]);
 
             if($x%100==0){
@@ -221,7 +222,7 @@ Sharpdragon лайкнут1	zizi_sk лайкнут1';
                 system('clear');
 
                 DB::table('users')->insert($arrayRec);
-                DB::table('profiles')->insert($arrayRec2);
+                DB::table('users_profiles')->insert($arrayRec2);
                 $arrayRec = array();
                 $arrayRec2 = array();
             }
