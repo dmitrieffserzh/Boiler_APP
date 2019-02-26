@@ -7,6 +7,8 @@
         <a href="{{ route('news.url', implode("/", $item->category->ancestorsAndSelf($item->category_id)->pluck('slug')->all())) }}" class="small font-weight-bold">{{$item->category->title}}</a>
 
       <div>{!! $item->content !!}</div>
+
+        <div>Просмотры: {{ $item->count_view }}</div>
     </div>
 @endsection
 

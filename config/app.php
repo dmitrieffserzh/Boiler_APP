@@ -176,6 +176,8 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         // MY PROVIDERS
+        \SocialiteProviders\Manager\ServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
 
     ],
 
@@ -228,6 +230,9 @@ return [
 
         // HELPERS
         'UsersHelper' => App\Helpers\UsersHelper::class,
+        // MY PROVIDERS
+        'Socialite' => Laravel\Socialite\Facades\Socialite::class,
+        'Image' => Intervention\Image\Facades\Image::class,
     ],
 
 ];

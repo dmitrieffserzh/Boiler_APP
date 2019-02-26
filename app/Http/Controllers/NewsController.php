@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\News;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Event;
 
 class NewsController extends Controller {
 
@@ -35,6 +36,7 @@ class NewsController extends Controller {
             $valid = $this->checkRoute($post, $route, "News");
 
             if ($valid) {
+                Event::fire( 'news.show', $post );
                 return view('main.news.show', [
                     'item' => $post
                 ]);

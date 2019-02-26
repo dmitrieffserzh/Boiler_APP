@@ -4,7 +4,7 @@
             <img src="{{ '/images/'. $categories[$numb]->image }}" alt="{{ $categories[$numb]->title }}"
                  class="news-tile__image">
             <div class="news-tile__content">
-
+                {{ $categories[$numb]->created_at->diffForHumans() }}
                 <a class="news-tile__title"
                    href="{{ route('news.url', implode("/", $categories[$numb]->category->ancestorsAndSelf($categories[$numb]->category_id)->pluck('slug')->all()).'/'.$categories[$numb]->slug) }}">
                     {{ $categories[$numb]->title }}

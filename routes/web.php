@@ -12,18 +12,24 @@
 */
 
 // MAIN ROUTE
-Route::get('/',                               [ 'as' => 'main',                         'uses' => 'MainController@index', 'middleware' => 'verified' ]);
-Route::get('/login',                           [ 'as' => 'login',                      'uses' => 'Auth\LoginController@showLoginForm' ]);
+Route::get('/',                                 [ 'as' => 'main',                         'uses' => 'MainController@index', 'middleware' => 'verified' ]);
+Route::get('/login',                            [ 'as' => 'login',                        'uses' => 'Auth\LoginController@showLoginForm' ]);
 
 Auth::routes(['verify' => true]);
+
+// SOCIAL NETWORK AUTH
+Route::get( '/redirect/{service}',              [ 'as' => 'oauth.login',                  'uses' => 'Auth\OAuthController@redirect' ]);
+Route::get( '/callback/{service}',              [                                         'uses' => 'Auth\OAuthController@callback' ]);
 
 
 
 
 // NEWS
-Route::group(['prefix' => 'news'], function() {
+Route::group([
+    'prefix' => 'news',
+    'middleware' => 'filter.view.counts'], function() {
     Route::get('/',                             [ 'as' => 'news',                         'uses' => 'NewsController@index' ]);
-    Route::get('/{route}',                     [ 'as' => 'news.url',                         'uses' => 'NewsController@getURL' ])->where('route', '(.+)');
+    Route::get('/{route}',                      [ 'as' => 'news.url',                     'uses' => 'NewsController@getURL' ])->where('route', '(.+)');
 });
 
 

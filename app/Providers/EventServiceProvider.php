@@ -13,11 +13,19 @@ class EventServiceProvider extends ServiceProvider {
         Registered::class => [
             SendEmailVerificationNotification::class,
         ],
+        \SocialiteProviders\Manager\SocialiteWasCalled::class => [
+            // add your listeners (aka providers) here
+            'SocialiteProviders\\VKontakte\\VKontakteExtendSocialite@handle',
+            'SocialiteProviders\\Instagram\\InstagramExtendSocialite@handle',
+            '\\JhaoDa\\SocialiteProviders\\Odnoklassniki\\OdnoklassnikiExtendSocialite@handle',
+        ],
+        'App\Events\Event' => [
+            'App\Listeners\EventListener',
+        ],
     ];
 
     public function boot() {
         parent::boot();
-
-        //
+            Event::listen(['news.show'] , 'App\Events\ViewPostHandler');
     }
 }

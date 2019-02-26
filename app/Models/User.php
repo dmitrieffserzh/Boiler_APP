@@ -31,6 +31,16 @@ class User extends Authenticatable implements MustVerifyEmail {
 
 
     // RELATIONS
+    public function getProvider($provider) {
+        return $this->providers->first(function (OAuth $item) use ($provider) {
+            return $item->provider === $provider;
+        });
+    }
+
+    public function oAuth() {
+        return $this->hasOne(OAuth::class);
+    }
+
     public function profile() {
         return $this->hasOne(Profile::class);
     }
