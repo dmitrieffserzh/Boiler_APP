@@ -8,11 +8,14 @@
 
       <div>{!! $item->content !!}</div>
 
-        <div>Просмотры: {{ $item->count_view }}</div>
-        <div>  @include('main.components.likes.like', ['content'=>$item]) </div>
-    </div>
+        <div>
+            @include('main.components.com_count.com_count', ['content'=>$item])
+            @include('main.components.views.view_count', ['content'=>$item])
+            @include('main.components.likes.like', ['content'=>$item])
+        </div>
+</div>
 @endsection
 
 @section('sidebar')
-    SIDEBAR
+SIDEBAR
 @endsection
