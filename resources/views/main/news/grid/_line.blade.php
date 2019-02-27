@@ -9,7 +9,7 @@
         <a class="font-weight-bold text-dark" href="{{ route('news.url', implode("/", $categories[$numb]->category->ancestorsAndSelf($categories[$numb]->category_id)->pluck('slug')->all()).'/'.$categories[$numb]->slug) }}"> {{ $categories[$numb]->title }}</a><br>
 
     </div>
-    @include('main.components.user_info.user_info-mini', ['content'=>$categories[$numb]->owner])
+    @include('main.components.user_info.user_info-mini', ['content'=>$categories[$numb]])
     <div>
         @include('main.components.com_count.com_count', ['content'=>$categories[$numb]])
         @include('main.components.views.view_count', ['content'=>$categories[$numb]])
@@ -29,7 +29,7 @@
         <a class="font-weight-bold text-dark" href="{{ route('news.url', implode("/", $categories[$numb+1]->category->ancestorsAndSelf($categories[$numb+1]->category_id)->pluck('slug')->all()).'/'.$categories[$numb+1]->slug) }}"> {{ $categories[$numb+1]->title }}</a><br>
 
     </div>
-    @include('main.components.user_info.user_info-mini', ['content'=>$categories[$numb+1]->owner])
+    @include('main.components.user_info.user_info-mini', ['content'=>$categories[$numb+1]])
     <div>
         @include('main.components.com_count.com_count', ['content'=>$categories[$numb+1]])
         @include('main.components.views.view_count', ['content'=>$categories[$numb+1]])
@@ -49,7 +49,7 @@
             <a class="font-weight-bold text-dark" href="{{ route('news.url', implode("/", $categories[$numb+2]->category->ancestorsAndSelf($categories[$numb+2]->category_id)->pluck('slug')->all()).'/'.$categories[$numb+2]->slug) }}"> {{ $categories[$numb+2]->title }}</a><br>
 
         </div>
-        @include('main.components.user_info.user_info-mini', ['content'=>$categories[$numb+2]->owner])
+        @include('main.components.user_info.user_info-mini', ['content'=>$categories[$numb+2]])
         <div>
             @include('main.components.com_count.com_count', ['content'=>$categories[$numb+2]])
             @include('main.components.views.view_count', ['content'=>$categories[$numb+2]])
