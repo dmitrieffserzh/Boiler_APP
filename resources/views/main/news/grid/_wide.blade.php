@@ -19,11 +19,24 @@
                     </div>
 
                 <div class="news-tile__author">
+                    <div class="d-inline-block position-relative">
                     <img src="{{ UsersHelper::get_avatar($categories[$numb]->owner->profile->avatar ?? null) }}" alt="{{ $categories[$numb]->owner->username ?? $categories[$numb]->owner->first_name }}"
                          width="50px" style="border-radius: 50%">
-
+                        @if( $categories[$numb]->owner->is_online() )
+                            <span class="component-status component-status--online"></span>
+                        @else
+                            <span class="component-status component-status--offline"></span>
+                        @endif
+                    </div>
                     <a class="font-weight-bold text-white"
                        href="{{ route('user.profile', $categories[$numb]->owner->route ?? $categories[$numb]->owner->username) }}">{{ $categories[$numb]->owner->username ?? $categories[$numb]->owner->first_name }}</a></li>
+
+                    <div>
+                        @include('main.components.com_count.com_count', ['content'=>$categories[$numb]])
+                        @include('main.components.views.view_count', ['content'=>$categories[$numb]])
+                        @include('main.components.likes.like', ['content'=>$categories[$numb]])
+                    </div>
+
                 </div>
             </div>
         </div>

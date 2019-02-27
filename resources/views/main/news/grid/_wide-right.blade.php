@@ -10,6 +10,11 @@
         <a class="font-weight-bold text-dark" href="{{ route('news.url', implode("/", $categories[$numb]->category->ancestorsAndSelf($categories[$numb]->category_id)->pluck('slug')->all()).'/'.$categories[$numb]->slug) }}"> {{ $categories[$numb]->title }}</a><br>
 
     </div>
+    <div>
+        @include('main.components.com_count.com_count', ['content'=>$categories[$numb]])
+        @include('main.components.views.view_count', ['content'=>$categories[$numb]])
+        @include('main.components.likes.like', ['content'=>$categories[$numb]])
+    </div>
 </div>
 @endif
 
@@ -32,7 +37,11 @@
             <div class="news-tile__author">
                 <img src="{{ UsersHelper::get_avatar($categories[$numb+1]->owner->profile->avatar ?? null) }}" alt="{{ $categories[$numb+1]->owner->username ?? $categories[$numb+1]->owner->first_name }}"
                      width="50px" style="border-radius: 50%">
-
+                @if( $categories[$numb+1]->owner->is_online() )
+                    <span class="component-status component-status--online"></span>
+                @else
+                    <span class="component-status component-status--offline"></span>
+                @endif
                 <a class="font-weight-bold text-white"
                    href="{{ route('user.profile', $categories[$numb+1]->owner->route ?? $categories[$numb+1]->owner->username) }}">{{ $categories[$numb+1]->owner->username ?? $categories[$numb+1]->owner->first_name }}</a></li>
             </div>
