@@ -10601,10 +10601,10 @@ body {
 .component-status {
   display: inline-block;
   position: absolute;
-  right: 0.25rem;
-  bottom: 0.25rem;
-  width: 0.4rem;
-  height: 0.4rem;
+  right: 6%;
+  bottom: 7%;
+  width: 6px;
+  height: 6px;
   box-shadow: 0 0 0 0.15rem #fff;
   border-radius: 50%;
 }
