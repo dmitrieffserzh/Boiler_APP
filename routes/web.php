@@ -46,3 +46,6 @@ Route::get('/{route}/edit/route',             [ 'as' => 'user.profile.edit.url',
 
 // AJAX
 Route::post('/check_username',                [ 'as' => 'check_username',               'uses' => 'Auth\RegisterController@checkUsername' ]);
+
+// LIKE
+Route::post('like_handler',                     ['as' => 'like_handler',                  'uses' => 'LikeController@like']);

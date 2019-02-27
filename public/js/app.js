@@ -35174,8 +35174,31 @@ try {
   });
 } catch (e) {
   console.log(e);
-} // // MODAL WINDOW
+} // LIKE SYSTEM
 
+
+$(document).on('click', '.component-likes__button', function () {
+  var that_main = $(this).parent();
+  var data = $(this).data();
+  $.ajax({
+    headers: {
+      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    },
+    data: data,
+    type: 'POST',
+    url: '/like_handler',
+    success: function success(result) {
+      that_main.find('.component-likes__count').text(result.like_count);
+
+      if (result.liked === true) {
+        that_main.find('.component-likes__button').removeClass('like--false').addClass('like--true');
+      } else {
+        that_main.find('.component-likes__button').removeClass('like--true').addClass('like--false');
+      }
+    }
+  });
+  event.preventDefault();
+}); // // MODAL WINDOW
 
 $(function () {
   $('.is-modal').on("click", function () {
@@ -35218,8 +35241,8 @@ $(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\DEVEPOPMENT\Boiler_APP\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! D:\DEVEPOPMENT\Boiler_APP\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /home/dmitrieff/Проекты/Boiler_APP/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /home/dmitrieff/Проекты/Boiler_APP/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

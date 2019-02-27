@@ -91,7 +91,7 @@ class NewsController extends Controller {
         $valid = false;
         if (count($ancestors_slugs) == count($route)) {
             $valid = true;
-            for ($i = 0; $i < count($ancestors_slugs); $i++) {
+            for ($i = 0;  $i < count($ancestors_slugs); $i++) {
                 $valid &= $route[$i] == $ancestors_slugs[$i];
             }
         }

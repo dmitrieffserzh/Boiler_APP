@@ -9,6 +9,7 @@
       <div>{!! $item->content !!}</div>
 
         <div>Просмотры: {{ $item->count_view }}</div>
+        <div>  @include('main.components.likes.like', ['content'=>$item]) </div>
     </div>
 @endsection
 

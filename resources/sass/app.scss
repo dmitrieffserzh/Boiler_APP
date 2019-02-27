@@ -29,7 +29,7 @@ body {
   min-height: 500px;
 }
 
-/* NEWS >>
+/* NEWS 
 ===================================================================================================================== */
 .news {
   &-tile {
@@ -91,5 +91,218 @@ body {
         color: #fff !important;
       }
     }
+  }
+}
+
+
+
+// COMPONENTS >> ======================================================================================================/
+.component {
+  // STATUS
+  &-status {
+    display: inline-block;
+    position: absolute;
+    right: .25rem;
+    bottom: 0.25rem;
+    width: .4rem;
+    height: .4rem;
+    box-shadow: 0 0 0 0.15rem #fff;
+    border-radius: 50%;
+    &--online {
+      background: #09e426;
+    }
+    &--offline {
+      background: #b1c6d2;
+    }
+  }
+  // COMMENT COUNT
+  &-comments-count {
+    display: inline-block;
+    line-height: 0;
+    &__count {
+      display: inline-block;
+      float: right;
+      padding: 0 .3rem;
+      min-width: 40px;
+      font-family: Arial, monospace;
+      font-size: 14px;
+      color: #b6bcc7;
+      text-align: left;
+      vertical-align: middle;
+      line-height: 1.4rem;
+    }
+    &__icon {
+      display: inline-block;
+      fill: none;
+      stroke: #cad0dc !important;
+      overflow: hidden;
+    }
+  }
+  // COUNT VIEW
+  &-views {
+    display: inline-block;
+    line-height: 0;
+    &__count {
+      display: inline-block;
+      float: right;
+      padding: 0 .3rem;
+      min-width: 40px;
+      font-family: Arial, monospace;
+      font-size: 14px;
+      color: #b6bcc7;
+      text-align: left;
+      vertical-align: middle;
+      line-height: 1.4rem;
+    }
+    &__icon {
+      display: inline-block;
+      fill: none;
+      stroke: #cad0dc !important;
+      overflow: hidden;
+    }
+  }
+  // LIKE SYSTEM
+  &-likes {
+    display: inline-block;
+    float: right;
+    line-height: 0;
+    &__count {
+      display: inline-block;
+      float: left;
+      padding: 0 .3rem;
+      min-width: 40px;
+      font-family: Arial, monospace;
+      font-size: 14px;
+      color: #b6bcc7;
+      text-align: right;
+      vertical-align: middle;
+      line-height: 1.4rem;
+    }
+    &__button {
+      display: inline-block;
+      overflow: hidden;
+    }
+    & .like {
+      &--true {
+        fill: #ff5b97 !important;
+        stroke: #ff5b97 !important;
+        -webkit-animation: like--true .2s normal;
+        -moz-animation: like--true .2s normal;
+        -o-animation: like--true .2s normal;
+        animation: like--true .2s normal;
+      }
+      &--false {
+        //fill: #cad0dc !important;
+        fill: none;
+        stroke: #cad0dc !important;
+        -webkit-animation: like--false .2s normal;
+        -moz-animation: like--false .2s normal;
+        -o-animation: like--false .2s normal;
+        animation: like--false .2s normal;
+      }
+    }
+  }
+}
+
+
+
+
+
+// ANIMATIONS >> ======================================================================================================/
+// LIKE TRUE
+@-webkit-keyframes like--true {
+  0% {
+    -webkit-transform: scale(1);
+  }
+  70% {
+    -webkit-transform: scale(1.2);
+  }
+  100% {
+    -webkit-transform: scale(1);
+  }
+}
+
+@-moz-keyframes like--true {
+  0% {
+    -moz-transform: scale(1);
+  }
+  70% {
+    -moz-transform: scale(1.2);
+  }
+  100% {
+    -moz-transform: scale(1);
+  }
+}
+
+@-o-keyframes like--true {
+  0% {
+    -o-transform: scale(1);
+  }
+  70% {
+    -o-transform: scale(1.2);
+  }
+  100% {
+    -o-transform: scale(1);
+  }
+}
+
+@keyframes like--true {
+  0% {
+    transform: scale(1);
+  }
+  70% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+// LIKE FALSE
+@-webkit-keyframes like--false {
+  0% {
+    -webkit-transform: scale(1);
+  }
+  70% {
+    -webkit-transform: scale(0.8);
+  }
+  100% {
+    -webkit-transform: scale(1);
+  }
+}
+
+@-moz-keyframes like--false {
+  0% {
+    -moz-transform: scale(1);
+  }
+  70% {
+    -moz-transform: scale(0.8);
+  }
+  100% {
+    -moz-transform: scale(1);
+  }
+}
+
+@-o-keyframes like--false {
+  0% {
+    -o-transform: scale(1);
+  }
+  70% {
+    -o-transform: scale(0.8);
+  }
+  100% {
+    -o-transform: scale(1);
+  }
+}
+
+@keyframes like--false {
+  0% {
+    transform: scale(1);
+  }
+  70% {
+    transform: scale(0.8);
+  }
+  100% {
+    transform: scale(1);
   }
 }
