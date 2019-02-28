@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="col-md-12">
-        <h1 class="h4">Новости</h1>
+        <h1 class="h4 text-uppercase"> <span class="font-weight-bold"> Новости</span>  <span class="font-weight-light text-muted"> логистики</span></h1>
         <div class="row">
 
             @for($numb = 0; $numb < count($categories); $numb = $numb + 14)
