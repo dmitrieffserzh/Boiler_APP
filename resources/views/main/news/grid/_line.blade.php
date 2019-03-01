@@ -1,5 +1,5 @@
 @if(isset($categories[$numb]))
-<div class="col-lg-4 my-5 average">
+<div class="news__item">
     <img src="{{ '/images/'. $categories[$numb]->image }}" alt="" width="100%">
 
     <div class="py-3">
@@ -19,7 +19,7 @@
 @endif
 
 @if(isset($categories[$numb+1]))
-<div class="col-lg-4 my-5 average">
+<div class="news__item">
     <img src="{{ '/images/'. $categories[$numb+1]->image }}" alt="" width="100%">
 
     <div class="py-3">
@@ -39,7 +39,7 @@
 @endif
 
 @if(isset($categories[$numb+2]))
-    <div class="col-lg-4 my-5 average">
+    <div class="news__item">
         <img src="{{ '/images/'. $categories[$numb+2]->image }}" alt="" width="100%">
 
         <div class="py-3">

@@ -1,7 +1,32 @@
 // FONT
 @import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700,900&subset=cyrillic');
 // BOOTSTRAP
-@import '_bootstrap/bootstrap';
+//@import '_bootstrap/bootstrap';
+@import "_bootstrap/bootstrap-reboot";
+@import "_grid/default";
+@import "_grid/container";
+@import "_grid/col";
+@import "_grid/row";
+@import "_grid/translate";
+@import "_grid/functions";
+
+
+* {
+  box-sizing: border-box; // recommend
+}
+
+
+//111111111111111111111111
+.nav-item {
+  display: inline-block;
+}
+//111111111111111111111111
+
+
+
+
+
+
 
 body {
   padding: 4.5rem 0 0;
@@ -12,7 +37,7 @@ body {
   -moz-backface-visibility: hidden;
   -ms-backface-visibility: hidden;
   text-rendering: geometricPrecision !important;
- // background: #F8F9FB;
+  // background: #F8F9FB;
   background: #fff;
   font-weight: 400;
   line-height: 1.5;
@@ -35,11 +60,25 @@ body {
 // MAIN
 .main {
   background: #fff;
-  padding: 1rem 0;
- // -webkit-box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.05);
- // box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.05);
+  @include grid-container(sm);
+
+  -webkit-box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.05);
   border-radius: .2rem;
   overflow: hidden;
+}
+
+.content {
+  @include grid-row();
+  &__section {
+    @include grid-col(12 12 9 of 12);
+  }
+  &__aside {
+    border-left: 1px Solid #e9ecf1;
+    padding: 1rem 0;
+    min-height: 500px;
+    @include grid-col(12 12 3 of 12);
+  }
 }
 
 .aside {
@@ -54,102 +93,156 @@ body {
   min-height: 400px;
 }
 
-
-
-
-
-/* NEWS 
+/* NEWS
 ===================================================================================================================== */
 
-
-
-
-
-
-.news {}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .news {
-  &-tile {
-    position: relative;
-    &__image {
-      width: 100%;
-      &:after {
+  @include grid-row();
 
-      }
+  &__item {
+    margin: 0 0 2rem;
+    @include grid-col(12 4 4 (1 of 3));
+
+    &--full-poster {
+      @include grid-col(12);
     }
-    &__category-title {
-      display: inline-block;
-      padding: 0 0 0 1rem;
-      position: relative;
-      font-size: 0.7rem;
-      font-weight: 600;
-      color: #79c1f5;
-      text-transform: uppercase;
-      text-decoration: none;
-      letter-spacing: 1px;
-      &:before {
-        content: "\2022";
-        position: absolute;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        font-size: 2rem;
-        line-height: 0.75rem;
-      }
+    &--mini-poster {
+      @include grid-col(12 8 8);
     }
-    &--wide {
-      & .news-tile__content {
-        background: rgba(8, 18, 90, 0.5);
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        padding: 2rem;
-        transition: background .3s linear;
-        text-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-        &:hover {
-          background: rgba(15, 35, 82, 0.9);
-          transition: background .3s linear;
-        }
-      }
-      & .news-tile__title {
-        display: block;
-        font-size: 2rem;
-        font-weight: 700;
-        color: #fff;
-        line-height: 1.333;
-      }
-      & .news-tile__description {
-        color: #ececec;
-      }
-      & .news-tile__author {
-        position: absolute;
-        bottom: 2rem;
-        color: #fff !important;
-      }
-    }
+    //@include grid-breakpoint(md) {
+    //letter-spacing: 0.5em;
+  //}
+  }
+
+  &__image {
+    width: 100%;
   }
 }
 
+/* ------------ * /
 
+//
+//
+//
+//.news {
+//  &-item {
+//    position: relative;
+//    margin: 0 0 2rem;
+//    &__image {
+//      width: 100%;
+//    }
+//  }
+//
+//  &-item--wide {
+//
+//
+//    & .news-item__content {
+//      background: rgba(8, 18, 90, 0.5);
+//      position: absolute;
+//      top: 0;
+//      left: 15px;
+//      right: 15px;
+//      bottom: 0;
+//      padding: 2rem;
+//      transition: background .3s linear;
+//      text-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+//      &:hover {
+//        background: rgba(15, 35, 82, 0.9);
+//        transition: background .3s linear;
+//      }
+//    }
+//    & .news-item__title {
+//      color: #fff;
+//    }
+//
+//  }
+//  &-item--tile {
+//
+//
+//  }
+//}
+//
+//
+//
+//
+//
+//
+//
+//
+//
+///* -- */
+//
+//
+//
+//
+//
+//.news {
+//  &-tile {
+//    position: relative;
+//    &__image {
+//      width: 100%;
+//      &:after {
+//
+//      }
+//    }
+//    &__category-title {
+//      display: inline-block;
+//      padding: 0 0 0 1rem;
+//      position: relative;
+//      font-size: 0.7rem;
+//      font-weight: 600;
+//      color: #79c1f5;
+//      text-transform: uppercase;
+//      text-decoration: none;
+//      letter-spacing: 1px;
+//      &:before {
+//        content: "\2022";
+//        position: absolute;
+//        top: 0;
+//        left: 0;
+//        bottom: 0;
+//        font-size: 2rem;
+//        line-height: 0.75rem;
+//      }
+//    }
+//    &--wide {
+//      & .news-tile__content {
+//        background: rgba(8, 18, 90, 0.5);
+//        position: absolute;
+//        top: 0;
+//        left: 0;
+//        right: 0;
+//        bottom: 0;
+//        padding: 2rem;
+//        transition: background .3s linear;
+//        text-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+//        &:hover {
+//          background: rgba(15, 35, 82, 0.9);
+//          transition: background .3s linear;
+//        }
+//      }
+//      & .news-tile__title {
+//        display: block;
+//        font-size: 2rem;
+//        font-weight: 700;
+//        color: #fff;
+//        line-height: 1.333;
+//      }
+//      & .news-tile__description {
+//        color: #ececec;
+//      }
+//      & .news-tile__author {
+//        position: absolute;
+//        bottom: 2rem;
+//        color: #fff !important;
+//      }
+//    }
+//  }
+//}
 
 // COMPONENTS >> ======================================================================================================/
 .component {
+  position: relative;
   // STATUS
   &-status {
     display: inline-block;
@@ -255,10 +348,6 @@ body {
     }
   }
 }
-
-
-
-
 
 // ANIMATIONS >> ======================================================================================================/
 // LIKE TRUE
