@@ -1,9 +1,9 @@
 @if(isset($categories[$numb]))
 
-    <div class="news__item news__item--mini-poster">
+    <div class="news__item news__item--wide">
         <img src="{{ '/images/'. $categories[$numb]->image }}" alt="{{ $categories[$numb]->title }}"
              class="news__image">
-        <div class="news-tile__content">
+        <div class="news__content">
 
             <a class="news-tile__title"
                href="{{ route('news.url', implode("/", $categories[$numb]->category->ancestorsAndSelf($categories[$numb]->category_id)->pluck('slug')->all()).'/'.$categories[$numb]->slug) }}">
@@ -43,12 +43,12 @@
             {{$categories[$numb+1]->category->title}}</a>
         <a class="font-weight-bold text-dark" href="{{ route('news.url', implode("/", $categories[$numb+1]->category->ancestorsAndSelf($categories[$numb+1]->category_id)->pluck('slug')->all()).'/'.$categories[$numb+1]->slug) }}"> {{ $categories[$numb+1]->title }}</a><br>
     </div>
-    @include('main.components.user_info.user_info-mini', ['content'=>$categories[$numb+1]])
-    <div>
-        @include('main.components.com_count.com_count', ['content'=>$categories[$numb+1]])
-        @include('main.components.views.view_count', ['content'=>$categories[$numb+1]])
-        @include('main.components.likes.like', ['content'=>$categories[$numb+1]])
-    </div>
+{{--@include('main.components.user_info.user_info-mini', ['content'=>$categories[$numb+1]])--}}
+ <div>
+     @include('main.components.com_count.com_count', ['content'=>$categories[$numb+1]])
+     @include('main.components.views.view_count', ['content'=>$categories[$numb+1]])
+     @include('main.components.likes.like', ['content'=>$categories[$numb+1]])
+ </div>
 </div>
 @endif
 

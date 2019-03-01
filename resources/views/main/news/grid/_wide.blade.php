@@ -1,9 +1,9 @@
 @if(isset($categories[$numb]))
-    <div class="news__item news__item--full-poster">
+    <div class="news__item news__item--full">
 
         <img src="{{ '/images/'. $categories[$numb]->image }}" alt="{{ $categories[$numb]->title }}"
              class="news__image">
-        <div class="news-item__content">
+        <div class="news__content">
 
         </div>
     </div>

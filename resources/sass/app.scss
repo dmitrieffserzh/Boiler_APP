@@ -10,23 +10,16 @@
 @import "_grid/translate";
 @import "_grid/functions";
 
-
 * {
   box-sizing: border-box; // recommend
 }
-
 
 //111111111111111111111111
 .nav-item {
   display: inline-block;
 }
+
 //111111111111111111111111
-
-
-
-
-
-
 
 body {
   padding: 4.5rem 0 0;
@@ -100,18 +93,48 @@ body {
   @include grid-row();
 
   &__item {
+    position: relative;
     margin: 0 0 2rem;
     @include grid-col(12 4 4 (1 of 3));
-
-    &--full-poster {
-      @include grid-col(12);
-    }
-    &--mini-poster {
+    &--wide {
+      & .news__content {
+        position: absolute;
+        top: 0;
+        left: 15px;
+        right: 15px;
+        bottom: 0;
+        padding: 2rem;
+        background: rgba(8, 18, 90, 0.5);
+        text-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        transition: background .3s linear;
+        &:hover {
+          background: rgba(15, 35, 82, 0.9);
+          transition: background .1s linear;
+        }
+      }
       @include grid-col(12 8 8);
+    }
+    &--full {
+      & .news__content {
+        position: absolute;
+        top: 0;
+        left: 15px;
+        right: 15px;
+        bottom: 0;
+        padding: 2rem;
+        background: rgba(8, 18, 90, 0.5);
+        text-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        transition: background .3s linear;
+        &:hover {
+          background: rgba(15, 35, 82, 0.9);
+          transition: background .1s linear;
+        }
+      }
+      @include grid-col(12);
     }
     //@include grid-breakpoint(md) {
     //letter-spacing: 0.5em;
-  //}
+    //}
   }
 
   &__image {
