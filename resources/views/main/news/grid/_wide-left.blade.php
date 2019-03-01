@@ -5,6 +5,8 @@
              class="news__image">
         <div class="news__content">
 
+            <div class="news__date">{{ $categories[$numb]->created_at->diffForHumans() }}</div>
+
             <a class="news-tile__title"
                href="{{ route('news.url', implode("/", $categories[$numb]->category->ancestorsAndSelf($categories[$numb]->category_id)->pluck('slug')->all()).'/'.$categories[$numb]->slug) }}">
                 {{ $categories[$numb]->title }}
