@@ -563,7 +563,7 @@ body {
   left: 15px;
   right: 15px;
   bottom: 0;
-  padding: 2rem;
+  padding: 1rem;
   background: rgba(8, 18, 90, 0.5);
   transition: background 0.3s linear;
 }
@@ -571,6 +571,13 @@ body {
 .news__item--full .news__content:hover {
   background: rgba(15, 35, 82, 0.9);
   transition: background 0.1s linear;
+}
+
+@media (min-width: 768px) {
+  .news__item--full .news__content {
+    font-size: 1rem;
+    padding: 2rem;
+  }
 }
 
 .news__item--full .news__title {

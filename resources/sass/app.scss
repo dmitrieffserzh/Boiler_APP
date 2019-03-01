@@ -139,13 +139,17 @@ body {
         left: 15px;
         right: 15px;
         bottom: 0;
-        padding: 2rem;
+        padding: 1rem;
         background: rgba(8, 18, 90, 0.5);
         // text-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
         transition: background .3s linear;
         &:hover {
           background: rgba(15, 35, 82, 0.9);
           transition: background .1s linear;
+        }
+        @include grid-breakpoint(sm) {
+          font-size: 1rem;
+          padding: 2rem;
         }
       }
       & .news__title {
