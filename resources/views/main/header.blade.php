@@ -19,7 +19,7 @@
                         </a>
                     </li>
 
-                    <li class="nav-item">
+                 <!--   <li class="nav-item">
                         <a class="nav-link" href="{{ route('news') }}">
                             Статьи
                         </a>
@@ -48,7 +48,7 @@
                         <a class="nav-link" href="{{ route('news') }}">
                             Сервисы
                         </a>
-                    </li>
+                    </li>-->
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('users.list') }}">
                             Пользователи
