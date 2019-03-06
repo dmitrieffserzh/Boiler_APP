@@ -18,6 +18,7 @@ try {
     window.app = require('./_bootstrap/index.js');
     // MODAL WINDOW
     require('./_bootstrap/modal-control');
+    require('./kube');
 
 
     // AJAX X-CSRF-TOKEN

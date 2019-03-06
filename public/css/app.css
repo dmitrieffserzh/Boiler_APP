@@ -3272,9 +3272,9 @@ fieldset > .form-item:last-child {
 }
 
 .is-offcanvasTransition {
-  transition: -webkit-transform 0.5s ease-in-out;
-  transition: transform 0.5s ease-in-out;
-  transition: transform 0.5s ease-in-out, -webkit-transform 0.5s ease-in-out;
+  transition: -webkit-transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
 }
 
 .is-offcanvas {
@@ -3287,9 +3287,10 @@ fieldset > .form-item:last-child {
   min-height: 100vh;
   width: 300px;
   padding: 16px 20px;
-  background-color: #111113;
+  background-color: #fff;
   font-size: 0.9375em;
-  color: #fff;
+  color: #000;
+  box-shadow: 0 0 1.5rem rgba(0, 0, 0, 0.05);
 }
 
 .is-offcanvas.is-offcanvas-right {
@@ -3756,6 +3757,32 @@ body {
   margin: 0 0 2rem;
   box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.05);
   z-index: 100;
+}
+
+.header__content {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+@media (min-width: 768px) {
+  .header__content {
+    max-width: 768px;
+  }
+}
+
+@media (min-width: 992px) {
+  .header__content {
+    max-width: 992px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .header__content {
+    max-width: 1200px;
+  }
 }
 
 .main {
