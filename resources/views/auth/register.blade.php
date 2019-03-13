@@ -1,8 +1,8 @@
 @extends('main.app')
 
 @section('content')
-    <div class="col-md-6">
-        <h2>@lang('auth.register')</h2>
+    <h1 class="content-title">@lang('auth.register')</h1>
+    <div class="content-box">
 
         @if (session('error_message'))
             <div class="alert alert-warning" role="alert">
