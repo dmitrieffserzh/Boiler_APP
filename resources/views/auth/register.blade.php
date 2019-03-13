@@ -4,6 +4,14 @@
     <h1 class="content-title">@lang('auth.register')</h1>
     <div class="content-box">
 
+        <div class="content-box__header content-box__header--dark">
+            <ul class="content-box-menu">
+                <li><a href="#" class="content-box-menu__link content-box-menu__link--active">Рейтинг</a></li>
+                <li><a href="#" class="content-box-menu__link">Новые</a></li>
+            </ul>
+        </div>
+
+
         @if (session('error_message'))
             <div class="alert alert-warning" role="alert">
                 {{ session('error_message') }}

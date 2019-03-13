@@ -31,7 +31,8 @@
                 </div>
                 @endforeach
              </div>
-             {{ $categories->links() }}
+            {{ $categories->links('main.pagination.default') }}
+            <br>
 
 
  @endsection
