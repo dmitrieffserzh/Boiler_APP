@@ -73,9 +73,9 @@ body {
 
 
 .navbar-collapse {
-  display: inline-block;
-  @include grid-breakpoint(xs) {
-    display: none;
+   display: none;
+  @include grid-breakpoint(sm) {
+    display: inline-block;
   }
 }
 
