@@ -13,10 +13,10 @@
         </div>
         <ul style="list-style: none; padding: 0;margin: 0">
             @foreach($users as $user)
-                <li style="padding: .5rem 1rem; border-bottom: 1px Solid #f5f5f8;">
+                <li style="padding: .5rem 0; border-bottom: 1px Solid #f5f5f8;">
                     <div class="d-inline-block position-relative" style="display: inline-block; position: relative; margin: 0 .5rem 0 0;">
                         <img src="{{ UsersHelper::get_avatar($user->profile->avatar ?? null) }}" alt="" width="50px"
-                             style="border-radius: 50%">
+                             style="border-radius: 50%;">
                         @if( $user->is_online() )
                             <span class="component-status component-status--online"></span>
                         @else
