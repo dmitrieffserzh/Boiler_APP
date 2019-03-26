@@ -23,7 +23,9 @@
         </aside>
     @endif
     <section class="main__section">
-        @yield('content')
+        <div class="main__content">
+            @yield('content')
+        </div>
     </section>
 </main>
 

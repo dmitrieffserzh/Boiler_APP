@@ -67,16 +67,24 @@ body {
 // MAIN
 .main {
   @include grid-row();
-  margin: 0;
+  margin: 3rem 0 0;
   &__section {
+    padding: 1rem;
     width: calc(100% - 250px);
   }
+  &__content {
+    background: #fff;
+    padding: 1rem;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+  }
   &__aside {
+    position: relative;
+    top: 0;
+    left: 0;
+    bottom: 0;
     background: #343942;
-    height: calc(100vh - 3rem);
     min-height: 600px;
     width: 250px;
-    padding: 5rem 0 0;
   }
 }
 
