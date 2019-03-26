@@ -140,7 +140,7 @@ body {
         color: #212121;
         letter-spacing: .5px;
         border-radius: 3px;
-        transition: color .2s linear, background .2s linear;
+        transition: color .15s linear, background .15s linear;
         &:hover {
           color: #fff;
           background: #2a2c2f;
@@ -150,7 +150,6 @@ body {
           cursor: default;
           color: #fff;
           background: #2a2c2f;
-
         }
       }
     }

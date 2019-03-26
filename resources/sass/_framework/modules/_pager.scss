@@ -7,17 +7,21 @@
     font-size: $pager-font-size;
     font-weight: $pager-font-weight;
     text-transform: $pager-text-transform;
-    margin-top: $space-20;
-    margin-bottom: $space-20;
+    margin: $space-20 0;
+
 
     & a,
     & span {
         float: left;
-        padding: $pager-padding;
-        border: $pager-border-width $pager-border-style $pager-border-color;
-        border-right-color: transparent;
+        padding: 5px;
+        margin: 1px;
+        width: 2rem;
+       // border: $pager-border-width $pager-border-style $pager-border-color;
+       // border-right-color: transparent;
+        background: #dcdcdc;
         color: $pager-color-text;
     	text-decoration: none;
+        text-align: center;
         line-height: 1.4;
         &:first-child {
             border-top-left-radius: $pager-border-radius;

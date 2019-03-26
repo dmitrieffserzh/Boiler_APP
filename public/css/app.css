@@ -2021,8 +2021,7 @@ fieldset > .form-item:last-child {
   font-size: 0.875em;
   font-weight: normal;
   text-transform: none;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin: 20px 0;
 }
 
 .pager:after {
@@ -2034,11 +2033,13 @@ fieldset > .form-item:last-child {
 .pager a,
 .pager span {
   float: left;
-  padding: 8px 16px;
-  border: 1px solid rgba(17, 17, 19, 0.1);
-  border-right-color: transparent;
+  padding: 5px;
+  margin: 1px;
+  width: 2rem;
+  background: #dcdcdc;
   color: #111113;
   text-decoration: none;
+  text-align: center;
   line-height: 1.4;
 }
 
@@ -3937,7 +3938,7 @@ body {
   color: #212121;
   letter-spacing: 0.5px;
   border-radius: 3px;
-  transition: color 0.2s linear, background 0.2s linear;
+  transition: color 0.15s linear, background 0.15s linear;
 }
 
 .content-header__menu-link:hover {
