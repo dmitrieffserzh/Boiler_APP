@@ -11,7 +11,7 @@
 |
 */
 
-// MAIN ROUTE
+// MAIN ROUTE ======================================================================================================= //
 Route::get('/',                                 [ 'as' => 'main',                         'uses' => 'MainController@index', 'middleware' => 'verified' ]);
 Route::get('/login',                            [ 'as' => 'login',                        'uses' => 'Auth\LoginController@showLoginForm' ]);
 
@@ -24,7 +24,25 @@ Route::get( '/callback/{service}',              [                               
 
 
 
-// NEWS
+
+
+// ADMIN ============================================================================================================ //
+Route::group([
+    'namespace'  => 'Admin',
+    'prefix'     => 'admin'], function() {
+    Route::get('/',                             [ 'as' => 'index',                         'uses' => 'AdminController@index' ]);
+});
+
+
+
+
+
+
+
+
+
+
+// NEWS ============================================================================================================= //
 Route::group([
     'prefix' => 'news',
     'middleware' => 'filter.view.counts'], function() {
@@ -33,7 +51,7 @@ Route::group([
 });
 
 
-// PROFILES
+// PROFILES ========================================================================================================= //
 Route::get('/users',                          [ 'as' => 'users.list',                   'uses' => 'ProfileController@index' ]);
 Route::get('/{route}',                        [ 'as' => 'user.profile',                 'uses' => 'ProfileController@profile' ]);
 Route::get('/{route}/edit',                   [ 'as' => 'user.profile.edit',            'uses' => 'ProfileController@edit' ]);
@@ -48,4 +66,11 @@ Route::get('/{route}/edit/route',             [ 'as' => 'user.profile.edit.url',
 Route::post('/check_username',                [ 'as' => 'check_username',               'uses' => 'Auth\RegisterController@checkUsername' ]);
 
 // LIKE
-Route::post('like_handler',                     ['as' => 'like_handler',                  'uses' => 'LikeController@like']);
+Route::post('like_handler',                   ['as' => 'like_handler',                  'uses' => 'LikeController@like']);
+
+
+
+
+
+
+
