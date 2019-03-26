@@ -40,17 +40,21 @@ body {
   //}
   &__logo {
     display: inline-block;
-    background: #df0031;
-    padding: .5rem 1rem;
+    width: 250px;
+    opacity: .5;
     color: #fff;
     font-size: 1.3rem;
     font-weight: 900;
-    text-decoration: underline;
+    text-transform: uppercase;
+    text-align: center;
+    transition: opacity .3s linear;
     @include grid-breakpoint(sm) {
-      font-size: 1.8rem;
+      font-size: 2.1rem;
     }
     &:hover {
       color: #fff;
+      opacity: 1;
+      text-decoration: none;
     }
   }
 }
@@ -72,16 +76,18 @@ body {
   @include grid-row();
   margin: 0;
   &__section {
-    @include grid-col(12 8 10 of 12);
+    //@include grid-col(12 8 10 of 12);
+    width: calc(100% - 250px);
   }
   &__aside {
     background: #343942;
     height: calc(100vh - 3rem);
     min-height: 600px;
-    @include grid-col(12 4 2 of 12);
-    @include grid-breakpoint(sm) {
-      max-width: 250px;
-    }
+    //@include grid-col(12 4 2 of 12);
+    //@include grid-breakpoint(sm) {
+      width: 250px;
+      padding: 5rem 0 0;
+    //}
   }
 }
 
@@ -91,8 +97,8 @@ body {
 .footer {
   padding: 0 15px;
   background: #272c3a;
-  color: #929293;
-  font-size: 12px;
+  color: #555e6d;
+  font-size: 14px;
   line-height: 3rem;
   //&__content {
   //  @include grid-container(sm);

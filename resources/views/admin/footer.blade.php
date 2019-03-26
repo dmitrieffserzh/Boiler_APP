@@ -1,5 +1,3 @@
 <footer class="footer">
-    <div class="footer__content">
-       <div>FOOTER</div>
-    </div>
+       <div>LOGISTAM.RU — developed by Dmitrieffserzh</div>
 </footer>
