@@ -10,7 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::get('/catalog',                   ['as' => 'catalog',                  'uses' => 'MainController@catalog']);
 // MAIN ROUTE ======================================================================================================= //
 Route::get('/',                                 [ 'as' => 'main',                         'uses' => 'MainController@index', 'middleware' => 'verified' ]);
 Route::get('/login',                            [ 'as' => 'login',                        'uses' => 'Auth\LoginController@showLoginForm' ]);
@@ -67,6 +67,7 @@ Route::post('/check_username',                [ 'as' => 'check_username',       
 
 // LIKE
 Route::post('like_handler',                   ['as' => 'like_handler',                  'uses' => 'LikeController@like']);
+
 
 
 
